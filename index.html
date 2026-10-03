@@ -2,57 +2,191 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kairos — 정해 둔 날에만 울리는 알람</title>
-<meta name="description" content="Kairos는 출근일·운동일처럼 정해 둔 날에만 울리는 iPhone 알람 앱이에요. 공휴일과 휴가에는 알아서 쉬어요.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kairos — 공휴일엔 알아서 쉬는 알람</title>
+<meta name="description" content="Kairos는 요일과 공휴일, 휴가 일정을 보고 알람을 켜고 끄는 iPhone 알람 앱이에요.">
+<meta name="theme-color" content="#141831">
 <link rel="icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <img src="icon.png" alt="">
-    <span class="name">Kairos</span>
-    <nav>
-      <a href="./" aria-current="page">소개</a>
+  <header class="top">
+    <a href="index.html" style="display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none"><img src="icon.png" alt=""><span class="name">Kairos</span></a>
+    <nav aria-label="페이지">
+      <a href="index.html" aria-current="page">소개</a>
       <a href="privacy.html">개인정보처리방침</a>
       <a href="support.html">지원</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <img src="icon.png" alt="Kairos 앱 아이콘">
-    <h1>정해 둔 날에만<br><span class="grad">딱 맞게 울리는 알람</span></h1>
-    <p class="lead">출근일엔 울리고, 공휴일과 휴가엔 쉬어요.<br>알람을 그룹으로 묶고 울리는 날을 한 번만 정하면 돼요.</p>
-  </section>
+  <main>
+    <div class="hero">
+      <div>
+        <h1>공휴일엔<br>알아서 쉬는 알람</h1>
+        <p>평일 아침마다 깨우다가 공휴일과 휴가엔 울리지 않아요. 알람을 그룹으로 묶고 요일만 정해 두면, 쉬는 날은 Kairos가 챙겨요.</p>
+        <span class="soon"><span class="pip" aria-hidden="true"></span><b>iPhone 앱</b> 곧 App Store에서 만나요</span>
+      </div>
 
-  <div class="cards">
-    <div class="card">
-      <h3>그룹으로 한 번에</h3>
-      <p>출근·운동처럼 알람을 묶고, 울리는 요일과 공휴일 여부를 그룹에서 정해요.</p>
+      <div class="demo" aria-labelledby="demo-title">
+        <div class="demo-head">
+          <span class="month" id="demo-title">출근 · 2026년 10월</span>
+          <span class="count" id="count" aria-live="polite"></span>
+        </div>
+        <div class="grid" id="grid" role="group" aria-label="10월 달력. 날짜를 누르면 그날만 바뀌어요"></div>
+        <div class="demo-foot">
+          <button class="switch" id="holiday" role="switch" aria-checked="false">
+            <span class="track" aria-hidden="true"></span>공휴일에도 울리기
+          </button>
+          <div class="legend" aria-hidden="true">
+            <span><i style="background:linear-gradient(160deg,rgba(255,193,90,.6),rgba(255,94,58,.5))"></i>울림</span>
+            <span><i style="background:rgba(242,239,233,.08)"></i>쉼</span>
+            <span><i style="background:transparent;box-shadow:inset 0 0 0 1px #F0857A"></i>공휴일</span>
+          </div>
+        </div>
+        <p class="hint">날짜를 눌러 보세요. 그날만 바뀌어요.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>달력으로 그날만 바꾸기</h3>
-      <p>연차나 대체 출근일은 달력에서 날짜를 누르면 그날만 바뀌어요.</p>
-    </div>
-    <div class="card">
-      <h3>휴가 일정에 맞춰 쉬기</h3>
-      <p>캘린더에 '휴가' 같은 일정이 있으면 그날 알람을 쉬게 할 수 있어요.</p>
-    </div>
-    <div class="card">
-      <h3>전날 저녁에 미리 알려드려요</h3>
-      <p>내일 울릴 알람이 있으면 전날 저녁에 알려드리고, 쉬고 싶은 날은 바로 끌 수 있어요.</p>
-    </div>
-  </div>
 
-  <h2>개인정보는 아이폰 안에만 있어요</h2>
-  <p class="lead">계정도, 서버도, 광고도 없어요. 알람 설정과 캘린더 일정은 아이폰 밖으로 나가지 않아요.
-    <a href="privacy.html">개인정보처리방침 보기</a></p>
+    <section aria-labelledby="how">
+      <h2 id="how">이렇게 써요</h2>
+      <ol class="steps">
+        <li><h3>그룹을 만들어요</h3><p>출근, 운동처럼 함께 울릴 알람을 한 그룹에 담아요.</p></li>
+        <li><h3>알람 요일을 정해요</h3><p>요일을 고르고 공휴일에 쉴지 정해요. 그룹 안 알람이 모두 따라가요.</p></li>
+        <li><h3>그날만 바꿔요</h3><p>연차나 대체 출근일은 달력에서 날짜를 한 번 누르면 끝이에요.</p></li>
+      </ol>
+    </section>
 
-  <footer>
-    <p>Kairos · iPhone 알람 앱</p>
-    <p><a href="privacy.html">개인정보처리방침</a> · <a href="support.html">지원</a></p>
-  </footer>
+    <section aria-labelledby="more">
+      <h2 id="more">알아서 챙겨 줘요</h2>
+      <div class="features">
+        <div><h3>공휴일엔 쉬어요</h3><p>대체공휴일과 노동절까지 포함해요. 새 공휴일이 생기면 앱 업데이트 없이 받아요.</p></div>
+        <div><h3>휴가 일정에 맞춰 쉬어요</h3><p>캘린더에 '휴가' 같은 일정이 있으면 그날 알람을 쉬게 할 수 있어요.</p></div>
+        <div><h3>잠깐 끄고 다시 켜요</h3><p>알람을 끌 때 다시 켤 날짜를 정해 두면, 그날부터 다시 울려요.</p></div>
+        <div><h3>전날 저녁에 알려 줘요</h3><p>내일 울릴 알람이 있으면 전날 저녁에 미리 알려 드려요.</p></div>
+      </div>
+    </section>
+
+    <section class="privacy" aria-labelledby="priv">
+      <h2 id="priv">알람은 아이폰 안에만 있어요</h2>
+      <p>계정도, 서버도, 광고도 없어요. 알람 설정과 캘린더 일정은 아이폰 밖으로 나가지 않아요.</p>
+      <p><a href="privacy.html">개인정보처리방침 읽기</a></p>
+    </section>
+  </main>
 </div>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html">소개</a>
+    <a href="privacy.html">개인정보처리방침</a>
+    <a href="support.html">지원</a>
+    <a href="https://github.com/woosublee/kairos/issues">문의</a>
+    <span class="copy">© 2026 Kairos</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // 앱에 들어 있는 공휴일 자료(2026–2027). holiday-data/가 게시되면 그 파일을 먼저 읽는다.
+  var EMBEDDED = {"2026-01-01": "1월 1일", "2026-02-16": "설날 전날", "2026-02-17": "설날", "2026-02-18": "설날 다음 날", "2026-03-01": "3·1절", "2026-03-02": "대체공휴일(3·1절)", "2026-05-01": "노동절", "2026-05-05": "어린이날", "2026-05-24": "부처님 오신 날", "2026-05-25": "대체공휴일(부처님 오신 날)", "2026-06-03": "제9회 전국동시지방선거", "2026-06-06": "현충일", "2026-07-17": "제헌절", "2026-08-15": "광복절", "2026-08-17": "대체공휴일(광복절)", "2026-09-24": "추석 전날", "2026-09-25": "추석", "2026-09-26": "추석 다음 날", "2026-10-03": "개천절", "2026-10-05": "대체공휴일(개천절)", "2026-10-09": "한글날", "2026-12-25": "기독탄신일", "2027-01-01": "1월 1일", "2027-02-06": "설날 전날", "2027-02-07": "설날", "2027-02-08": "설날 다음 날", "2027-02-09": "대체공휴일(설날)", "2027-03-01": "3·1절", "2027-05-01": "노동절", "2027-05-03": "대체공휴일(노동절)", "2027-05-05": "어린이날", "2027-05-13": "부처님 오신 날", "2027-06-06": "현충일", "2027-07-17": "제헌절", "2027-07-19": "대체공휴일(제헌절)", "2027-08-15": "광복절", "2027-08-16": "대체공휴일(광복절)", "2027-09-14": "추석 전날", "2027-09-15": "추석", "2027-09-16": "추석 다음 날", "2027-10-03": "개천절", "2027-10-04": "대체공휴일(개천절)", "2027-10-09": "한글날", "2027-10-11": "대체공휴일(한글날)", "2027-12-25": "기독탄신일", "2027-12-27": "대체공휴일(기독탄신일)"};
+  var holidays = Object.assign({}, EMBEDDED);
+  var now = new Date();
+  var year = now.getFullYear(), month = now.getMonth(); // 0-based
+  var today = now.getDate();
+  var weekdays = [1, 2, 3, 4, 5]; // 월–금 (0=일)
+  var firstDow = new Date(year, month, 1).getDay();
+  var days = new Date(year, month + 1, 0).getDate();
+  var ringOnHolidays = false;
+  var changed = {}; // 날짜별 직접 바꾼 값: true=울림, false=쉼
+  var grid = document.getElementById("grid");
+  var count = document.getElementById("count");
+  var toggle = document.getElementById("holiday");
+  document.getElementById("demo-title").textContent = "출근 · " + year + "년 " + (month + 1) + "월";
+
+  function key(day) {
+    return year + "-" + String(month + 1).padStart(2, "0") + "-" + String(day).padStart(2, "0");
+  }
+  function holidayName(day) { return holidays[key(day)]; }
+
+  ["일", "월", "화", "수", "목", "금", "토"].forEach(function (d, i) {
+    var el = document.createElement("div");
+    el.className = "dow" + (i === 0 ? " sun" : "");
+    el.textContent = d;
+    grid.appendChild(el);
+  });
+  for (var b = 0; b < firstDow; b++) {
+    var blank = document.createElement("span");
+    blank.className = "day empty";
+    grid.appendChild(blank);
+  }
+  var cells = [];
+  for (var d = 1; d <= days; d++) {
+    var btn = document.createElement("button");
+    btn.className = "day";
+    btn.type = "button";
+    btn.textContent = d;
+    btn.dataset.day = d;
+    btn.style.setProperty("--i", d);
+    btn.addEventListener("click", onTap);
+    grid.appendChild(btn);
+    cells.push(btn);
+  }
+
+  function baseRings(day) {
+    var dow = (firstDow + day - 1) % 7;
+    if (holidayName(day)) return ringOnHolidays && weekdays.indexOf(dow) >= 0;
+    return weekdays.indexOf(dow) >= 0;
+  }
+  function rings(day) { return day in changed ? changed[day] : baseRings(day); }
+
+  function render(intro) {
+    var n = 0;
+    cells.forEach(function (c) {
+      var day = +c.dataset.day, on = rings(day), name = holidayName(day);
+      if (on) n++;
+      c.className = "day" + (on ? " ring" : "") + (name ? " holiday" : "") +
+        (day in changed ? " changed" : "") + (day === today ? " today" : "") + (intro && on ? " intro" : "");
+      c.setAttribute("aria-label", (month + 1) + "월 " + day + "일" + (name ? " " + name : "") +
+        (day === today ? ", 오늘" : "") + ", " + (on ? "울림" : "쉼") + (day in changed ? ", 직접 바꿈" : ""));
+      c.setAttribute("aria-pressed", on ? "true" : "false");
+      if (name) c.title = name; else c.removeAttribute("title");
+    });
+    count.textContent = n + "일 울려요";
+  }
+
+  function onTap(e) {
+    var day = +e.currentTarget.dataset.day;
+    if (day in changed) delete changed[day];
+    else changed[day] = !baseRings(day);
+    render(false);
+  }
+
+  toggle.addEventListener("click", function () {
+    ringOnHolidays = !ringOnHolidays;
+    toggle.setAttribute("aria-checked", ringOnHolidays ? "true" : "false");
+    render(false);
+  });
+
+  render(true);
+
+  // 게시된 공휴일 자료가 있으면 그 해 자료로 바꾼다(앱이 받는 자료와 같다). 없거나 실패하면 그대로 둔다.
+  if (window.fetch) {
+    fetch("holiday-data/holidays-" + year + ".json", { cache: "no-cache" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data || !Array.isArray(data.holidays)) return;
+        var fresh = {};
+        data.holidays.forEach(function (h) { fresh[h.date] = fresh[h.date] ? fresh[h.date] + " · " + h.name : h.name; });
+        Object.keys(holidays).forEach(function (k) { if (k.indexOf(year + "-") === 0) delete holidays[k]; });
+        Object.assign(holidays, fresh);
+        render(false);
+      })
+      .catch(function () {});
+  }
+})();
+</script>
 </body>
 </html>
