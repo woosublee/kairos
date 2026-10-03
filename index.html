@@ -137,7 +137,8 @@
 
   function baseRings(day) {
     var dow = (firstDow + day - 1) % 7;
-    if (holidayName(day)) return ringOnHolidays && weekdays.indexOf(dow) >= 0;
+    // 켜면 요일과 상관없이 모든 공휴일에 울려요(앱과 같다).
+    if (holidayName(day)) return ringOnHolidays;
     return weekdays.indexOf(dow) >= 0;
   }
   function rings(day) { return day in changed ? changed[day] : baseRings(day); }
