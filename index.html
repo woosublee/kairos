@@ -63,7 +63,7 @@
     <section aria-labelledby="more">
       <h2 id="more">알아서 챙겨 줘요</h2>
       <div class="features">
-        <div><h3>공휴일엔 쉬어요</h3><p>대체공휴일과 노동절까지 포함해요. 새 공휴일이 생기면 앱 업데이트 없이 받아요.</p></div>
+        <div><h3>공휴일엔 쉬어요</h3><p>평일 공휴일엔 쉬고, 대체공휴일과 노동절까지 포함해요. 새 공휴일이 생기면 앱 업데이트 없이 받아요.</p></div>
         <div><h3>휴가 일정에 맞춰 쉬어요</h3><p>캘린더에 '휴가' 같은 일정이 있으면 그날 알람을 쉬게 할 수 있어요.</p></div>
         <div><h3>잠깐 끄고 다시 켜요</h3><p>알람을 끄고 '다시 켤 날 정하기'에서 날짜를 고르면, 그날부터 다시 울려요.</p></div>
         <div><h3>전날 저녁에 알려 줘요</h3><p>내일 울릴 알람이 있으면 전날 저녁에 미리 알려 드려요.</p></div>
@@ -137,8 +137,12 @@
 
   function baseRings(day) {
     var dow = (firstDow + day - 1) % 7;
-    // 켜면 요일과 상관없이 모든 공휴일에 울려요(앱과 같다).
-    if (holidayName(day)) return ringOnHolidays;
+    // 켜면 요일과 상관없이 모든 공휴일에 울리고, 끄면 월–금 공휴일에만 쉬어요(앱과 같다).
+    // 토·일 공휴일은 끔이어도 고른 요일대로예요.
+    if (holidayName(day)) {
+      if (ringOnHolidays) return true;
+      if (dow >= 1 && dow <= 5) return false;
+    }
     return weekdays.indexOf(dow) >= 0;
   }
   function rings(day) { return day in changed ? changed[day] : baseRings(day); }
