@@ -126,3 +126,14 @@ details p, details ul { margin-top: 10px; }
   background: linear-gradient(90deg, var(--gold), #FF5E3A); color: #1B1B1F; }
 .button:hover { opacity: .92; }
 .top nav a[aria-current="page"] { color: var(--paper); font-weight: 600; }
+
+/* 화면 미리보기: 휴대폰에서는 옆으로 넘기고, 넓은 화면에서는 한 줄에 다섯 장 */
+.shots { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 20px 12px; margin: 0 -20px; scrollbar-width: none; }
+.shots::-webkit-scrollbar { display: none; }
+.shots figure { flex: 0 0 62%; max-width: 260px; margin: 0; scroll-snap-align: center; }
+.shots img { display: block; width: 100%; height: auto; border-radius: 26px; border: 1px solid var(--line); box-shadow: 0 18px 40px rgba(0,0,0,.35); }
+.shots figcaption { margin-top: 12px; font-size: 14px; color: var(--mist); text-align: center; text-wrap: balance; }
+@media (min-width: 900px) {
+  .shots { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; overflow: visible; padding: 4px 0 0; margin: 0; }
+  .shots figure { max-width: none; }
+}
