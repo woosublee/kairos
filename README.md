@@ -2,7 +2,7 @@
 
 공휴일과 휴가엔 알아서 쉬는 iPhone 알람 앱 **Kairos**의 공개 저장소예요.
 
-- 웹페이지: https://woosublee.github.io/kairos/ (소개 · 개인정보처리방침 · 지원)
+- 웹페이지: https://kairos.vicals.com/ (소개 · 개인정보처리방침 · 지원)
 - `holiday-data/`: 앱이 내려받는 대한민국 공휴일 자료(서명 포함)
 - 문의와 버그 제보: [Issues](https://github.com/woosublee/kairos/issues)
 
