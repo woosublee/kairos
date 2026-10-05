@@ -66,6 +66,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .day.ring.holiday { color: #FFD0C8; }
 .day.changed::after { content: ""; position: absolute; bottom: 7px; left: 50%; width: 5px; height: 5px; margin-left: -2.5px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 6px rgba(255,193,90,.9); }
 .day.today { box-shadow: inset 0 0 0 1.5px var(--gold); }
+.day.event { box-shadow: inset 0 0 0 1.5px rgba(140,140,255,.75); }
+.day.event.today { box-shadow: inset 0 0 0 1.5px var(--gold), 0 0 0 1.5px rgba(140,140,255,.75); }
 .demo-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
 .switch { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: #C9CBD8; background: none; border: 0; padding: 0; cursor: pointer; font-family: var(--text); }
 .switch .track { width: 42px; height: 26px; border-radius: 13px; background: #2C3150; position: relative; transition: background .25s ease; }
@@ -75,7 +77,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .legend { display: flex; gap: 12px; font-size: 12px; color: var(--mist); flex-wrap: wrap; }
 .legend span { display: inline-flex; align-items: center; gap: 6px; }
 .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
-.hint { margin: 12px 2px 0; font-size: 13px; color: var(--mist); }
+.hero .hint { margin: 18px 0 0; font-size: 13px; line-height: 1.7; color: var(--mist); max-width: none; text-align: center; }
 
 @media (prefers-reduced-motion: no-preference) {
   .day.ring.intro { animation: glow .5s ease both; animation-delay: calc(var(--i) * 28ms); }
@@ -89,12 +91,8 @@ h2 { font-family: var(--display); font-weight: 700; font-size: clamp(26px, 3.4vw
 @media (min-width: 760px) { .steps { grid-template-columns: repeat(3, 1fr); gap: 36px; } }
 .steps li { counter-increment: step; }
 .steps li::before { content: counter(step); display: block; font-family: var(--display); font-weight: 800; font-size: 40px; line-height: 1; color: var(--ember); margin-bottom: 12px; }
-.steps h3, .features h3 { font-size: 18px; font-weight: 600; margin: 0 0 6px; }
-.steps p, .features p { margin: 0; color: #B9BCCB; font-size: 15.5px; text-wrap: pretty; }
-
-.features { display: grid; gap: 28px 48px; }
-@media (min-width: 760px) { .features { grid-template-columns: 1fr 1fr; } }
-.features div { padding-left: 16px; border-left: 2px solid rgba(255,138,42,.55); }
+.steps h3 { font-size: 18px; font-weight: 600; margin: 0 0 6px; }
+.steps p { margin: 0; color: #B9BCCB; font-size: 15.5px; text-wrap: pretty; }
 
 .privacy p { font-size: 18px; color: #C9CBD8; max-width: 36em; margin: 0 0 10px; }
 
@@ -127,13 +125,195 @@ details p, details ul { margin-top: 10px; }
 .button:hover { opacity: .92; }
 .top nav a[aria-current="page"] { color: var(--paper); font-weight: 600; }
 
-/* 화면 미리보기: 휴대폰에서는 옆으로 넘기고, 넓은 화면에서는 한 줄에 다섯 장 */
-.shots { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 20px 12px; margin: 0 -20px; scrollbar-width: none; }
-.shots::-webkit-scrollbar { display: none; }
-.shots figure { flex: 0 0 62%; max-width: 260px; margin: 0; scroll-snap-align: center; }
-.shots img { display: block; width: 100%; height: auto; border-radius: 26px; border: 1px solid var(--line); box-shadow: 0 18px 40px rgba(0,0,0,.35); }
-.shots figcaption { margin-top: 12px; font-size: 14px; color: var(--mist); text-align: center; text-wrap: balance; }
+/* 화면으로 보기: 휴대폰은 고정하고 설명을 스크롤하면 화면이 바뀐다(Apple 제품 페이지 방식) */
+.tour-grid { position: relative; display: grid; }
+.tour-stage { position: sticky; top: 64px; height: calc(100svh - 80px); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 12px; z-index: 0; }
+.device { position: relative; height: min(56svh, 520px); aspect-ratio: 660 / 1435; border-radius: 13% / 6%; padding: 2.4%; background: linear-gradient(160deg, #262b45, #0b0d18); box-shadow: 0 0 0 1px rgba(242,239,233,.14), 0 40px 80px rgba(0,0,0,.55), 0 0 120px rgba(255,138,42,.14); }
+.device img { position: absolute; inset: 2.4%; width: 95.2%; height: 95.2%; border-radius: 11% / 5%; object-fit: cover; opacity: 0; transform: scale(.985); transition: opacity .55s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+.device img.on { opacity: 1; transform: none; }
+.dots { display: flex; gap: 8px; margin-top: 18px; }
+.dots i { width: 6px; height: 6px; border-radius: 3px; background: rgba(242,239,233,.22); transition: width .4s ease, background .4s ease; }
+.dots i.on { width: 20px; background: var(--ember); }
+.tour-steps { position: relative; z-index: 1; margin-top: calc(-100svh + 80px); }
+.step { min-height: 92svh; display: flex; align-items: flex-end; padding-bottom: 6svh; }
+.step:first-child { margin-top: 0; }
+.step .card { width: 100%; padding: 18px 20px; border-radius: 20px; background: rgba(14,17,34,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid var(--line); opacity: .35; transform: translateY(10px); transition: opacity .5s ease, transform .5s ease; }
+.step.on .card { opacity: 1; transform: none; }
+.step .num { display: block; font-family: var(--display); font-weight: 800; font-size: 15px; color: var(--ember); margin-bottom: 6px; }
+.step h3 { font-family: var(--display); font-weight: 800; font-size: clamp(22px, 5.6vw, 34px); letter-spacing: -0.6px; line-height: 1.25; margin: 0 0 8px; }
+.step p { margin: 0; color: #C9CBD8; font-size: 15.5px; text-wrap: pretty; }
 @media (min-width: 900px) {
-  .shots { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; overflow: visible; padding: 4px 0 0; margin: 0; }
-  .shots figure { max-width: none; }
+  .tour-grid { grid-template-columns: 1fr 1fr; gap: 64px; }
+  .tour-stage { top: 0; height: 100vh; justify-content: center; padding-top: 0; }
+  .device { height: min(70vh, 640px); }
+  .tour-steps { margin-top: 0; }
+  .step { min-height: 100vh; align-items: center; padding-bottom: 0; }
+  .step .card { background: none; backdrop-filter: none; -webkit-backdrop-filter: none; border: 0; padding: 0; }
+  .step p { font-size: 17.5px; }
 }
+@media (prefers-reduced-motion: reduce) {
+  .device img, .step .card, .dots i { transition: none; }
+}
+
+/* 캘린더 규칙 칩(맨 위 데모) */
+.rules { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+.rules-label { font-size: 13px; color: var(--mist); margin-right: 4px; }
+.chip { font: 500 13.5px/1 var(--text); color: #C9CBD8; background: rgba(242,239,233,.05); border: 1px solid rgba(140,140,255,.45); border-radius: 999px; padding: 9px 13px; cursor: pointer; transition: background .25s ease, color .25s ease, border-color .25s ease; }
+.chip:hover { background: rgba(140,140,255,.12); }
+.chip[aria-pressed="true"] { background: rgba(140,140,255,.9); border-color: transparent; color: #0E1122; }
+
+/* 투어 여백: 섹션 위아래와 단계 사이를 줄인다 */
+section.tour { padding-bottom: 0; }
+.tour .step { min-height: 72svh; }
+@media (min-width: 900px) {
+  /* 휴대폰은 화면 세로 가운데에 고정한다 */
+  .tour-stage { top: 0; height: 100vh; justify-content: center; padding-top: 0; }
+  .device { height: min(70vh, 620px); }
+  .tour .step { min-height: 64vh; }
+  .tour .step:last-child { min-height: 52vh; }
+  /* 휴대폰이 고정될 때 1번이 화면 가운데에 오도록 앞에 여백을 둔다 */
+  .tour-steps { padding-top: 22vh; }
+}
+
+/* 전날 밤 알림 미리보기 */
+.brief { display: grid; gap: 32px; align-items: center; }
+.brief h2 { margin-bottom: 10px; }
+.brief-copy p { margin: 0 0 22px; color: #C9CBD8; font-size: 16.5px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.tabs button { font: 500 14px/1 var(--text); color: #C9CBD8; background: rgba(242,239,233,.05); border: 1px solid var(--line); border-radius: 999px; padding: 10px 15px; cursor: pointer; transition: background .25s ease, color .25s ease; }
+.tabs button[aria-selected="true"] { background: var(--paper); color: var(--deep); border-color: transparent; }
+.lock { position: relative; border-radius: 32px; padding: 34px 18px 26px; text-align: center; overflow: hidden;
+  background: radial-gradient(120% 80% at 50% 0%, #2B3366 0%, #141831 55%, #0B0D1C 100%); border: 1px solid var(--line); box-shadow: 0 30px 70px rgba(0,0,0,.45); }
+.lock-time { font-family: var(--display); font-weight: 700; font-size: 72px; line-height: 1; letter-spacing: -2px; color: #F7F4EE; }
+.lock-date { margin: 8px 0 26px; font-size: 15px; color: rgba(242,239,233,.75); }
+.noti { display: flex; gap: 12px; align-items: flex-start; text-align: left; padding: 13px 14px; border-radius: 22px; background: rgba(242,239,233,.13); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+.noti img { width: 38px; height: 38px; border-radius: 9px; flex: none; }
+.noti-text { flex: 1; min-width: 0; }
+.noti-head { display: flex; justify-content: space-between; font-size: 14px; color: #F7F4EE; }
+.noti-head span { color: rgba(242,239,233,.6); font-size: 13px; }
+.noti-body { margin-top: 2px; font-size: 14.5px; color: rgba(247,244,238,.92); line-height: 1.45; }
+.noti.in { animation: noti-in .45s cubic-bezier(.2,.8,.2,1); }
+@keyframes noti-in { from { opacity: 0; transform: translateY(-10px) scale(.98); } to { opacity: 1; transform: none; } }
+@media (min-width: 900px) {
+  .brief { grid-template-columns: 1fr 1fr; gap: 64px; }
+  .lock { max-width: 420px; justify-self: center; width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .noti.in { animation: none; } }
+
+/* 기능 카드 세 개는 넓은 화면에서 한 줄로 */
+
+/* ── 움직임(.motion은 애니메이션 줄이기를 켜지 않았을 때만 붙는다) ── */
+.motion .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .9s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0s); }
+.motion .reveal.in { opacity: 1; transform: none; }
+.motion h2.words { opacity: 1; transform: none; }
+.motion h2.words .w { display: inline-block; opacity: 0; transform: translateY(.45em); transition: opacity .6s ease, transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--i) * 70ms); }
+.motion h2.words.in .w { opacity: 1; transform: none; }
+.motion .demo.reveal.in { transform: translateY(var(--py, 0px)); transition: opacity .8s ease .15s, transform .2s linear; }
+.motion .hero p.reveal { transition-delay: .12s; }
+.motion .soon.reveal { transition-delay: .22s; }
+.chip.nudge { animation: nudge 1.6s ease-in-out var(--d, 0s) 2; }
+@keyframes nudge { 0%, 100% { box-shadow: 0 0 0 0 rgba(140,140,255,0); } 50% { box-shadow: 0 0 0 6px rgba(140,140,255,.25); border-color: rgba(140,140,255,.9); } }
+
+/* 개인정보: 큰 문장을 스크롤만큼 단어별로 밝힌다 */
+.privacy .statement { font-family: var(--display); font-weight: 700; font-size: clamp(18px, 4.6vw, 36px); line-height: 1.3; letter-spacing: -0.8px; color: var(--paper); max-width: 22em; margin: 0 0 22px; }
+.motion .privacy .statement span { color: rgba(242,239,233,.18); transition: color .35s ease; }
+.motion .privacy .statement span.lit { color: var(--paper); }
+
+/* ── 스크롤 장면: 섹션은 화면에 고정되고 스크롤만큼 단계가 진행된다 ── */
+.scene { position: relative; }
+.scene > .sticky { position: sticky; top: 0; min-height: 100svh; display: flex; align-items: center; }
+.scene > .sticky > * { width: 100%; }
+.hero-scene { height: calc(100svh + 4 * 45svh); }
+.brief-scene { height: calc(100svh + 4 * 40svh); border-top: 1px solid var(--line); padding: 0; }
+.privacy-scene { height: calc(100svh + 70svh); padding: 0; }
+.hero-scene .hero { padding: 24px 0; }
+@media (min-width: 900px) { .hero-scene .hero { padding: 0; } }
+
+/* 맨 위 문장 줄: 스크롤만큼 밝아진다 */
+.story { list-style: none; margin: 0 0 26px; padding: 0; display: grid; gap: 6px; }
+.story li { font-size: clamp(17px, 2vw, 21px); font-weight: 600; color: rgba(242,239,233,.22); transition: color .4s ease, transform .4s ease; padding-left: 16px; position: relative; }
+.story li::before { content: ""; position: absolute; left: 0; top: .55em; width: 6px; height: 6px; border-radius: 50%; background: rgba(242,239,233,.2); transition: background .4s ease, box-shadow .4s ease; }
+.story li.on { color: rgba(242,239,233,.7); }
+.story li.now { color: var(--paper); }
+.story li.now::before { background: var(--ember); box-shadow: 0 0 10px rgba(255,138,42,.8); }
+@media (max-width: 899px) {
+  .hero-scene .hero { gap: 18px; }
+  .hero-scene h1 { margin-bottom: 14px; }
+  .story { margin-bottom: 0; gap: 3px; }
+  .story li { font-size: 15px; }
+  .hero-scene .soon { display: none; }
+  .hero-scene .demo { padding: 14px 14px 12px; }
+  .hero-scene .grid { gap: 4px; }
+  .hero-scene .hint { display: none; }
+}
+
+/* 이렇게 써요: 5번이 가운데까지 올라온 뒤에 휴대폰이 풀린다 */
+.tour .step:last-child { min-height: 64vh; }
+.tour-steps { padding-bottom: 30vh; }
+@media (max-width: 899px) { .tour-steps { padding-bottom: 20svh; } }
+
+/* 기능 카드: 스크롤만큼 한 장씩 올라온다 */
+
+/* 개인정보 */
+.privacy-scene .statement span { color: rgba(242,239,233,.18); transition: color .3s ease; }
+.privacy-scene .statement span.lit { color: var(--paper); }
+
+/* 잠금 화면 배경은 알림 문구가 두 줄이 되어도 크기가 변하지 않게 고정한다 */
+.lock { min-height: 300px; box-sizing: border-box; }
+
+/* ── 1. 밤에서 새벽으로: 화면 뒤에 고정된 하늘. --t(0→1)는 스크롤 진행 ── */
+html, body { background: var(--deep); }
+body { background: transparent !important; }
+.sky { position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(1200px 700px at 85% -10%, rgba(52,62,120,calc(.55 - var(--t,0) * .35)), transparent 60%),
+    linear-gradient(180deg,
+      color-mix(in oklab, #0E1122, #22183A calc(var(--t,0) * 100%)) 0%,
+      color-mix(in oklab, #141831, #3A2340 calc(var(--t,0) * 100%)) 60%,
+      color-mix(in oklab, #0E1122, #5A2E3A calc(var(--t,0) * 100%)) 100%); }
+.sky .stars { position: absolute; inset: 0; opacity: calc(1 - var(--t,0) * 1.4);
+  background-image:
+    radial-gradient(1.2px 1.2px at 12% 18%, rgba(255,255,255,.8), transparent 60%),
+    radial-gradient(1px 1px at 28% 42%, rgba(255,255,255,.6), transparent 60%),
+    radial-gradient(1.4px 1.4px at 46% 12%, rgba(255,255,255,.75), transparent 60%),
+    radial-gradient(1px 1px at 63% 33%, rgba(255,255,255,.55), transparent 60%),
+    radial-gradient(1.2px 1.2px at 78% 22%, rgba(255,255,255,.7), transparent 60%),
+    radial-gradient(1px 1px at 88% 48%, rgba(255,255,255,.5), transparent 60%),
+    radial-gradient(1.3px 1.3px at 8% 66%, rgba(255,255,255,.55), transparent 60%),
+    radial-gradient(1px 1px at 36% 74%, rgba(255,255,255,.45), transparent 60%),
+    radial-gradient(1.2px 1.2px at 57% 61%, rgba(255,255,255,.5), transparent 60%),
+    radial-gradient(1px 1px at 93% 80%, rgba(255,255,255,.45), transparent 60%);
+  background-size: 640px 640px; }
+.sky .dawn { position: absolute; left: -10%; right: -10%; bottom: -30vh; height: 80vh; opacity: calc(var(--t,0) * 1.1 - .1);
+  background: radial-gradient(60% 60% at 50% 100%, rgba(255,150,70,.55), rgba(255,94,58,.18) 45%, transparent 75%); }
+@media (prefers-reduced-motion: reduce) { .sky .stars, .sky .dawn { transition: none; } }
+
+/* ── 2. 실제 아이폰 모양 틀: 측면 버튼, 다이내믹 아일랜드, 빛 반사 ── */
+.device { background: linear-gradient(145deg, #4A4F66 0%, #1C1F2E 18%, #0B0D16 55%, #2A2E42 100%);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.10), inset 0 0 0 1.5px rgba(255,255,255,.08), 0 50px 100px rgba(0,0,0,.6), 0 0 140px rgba(255,138,42,.16); }
+.device::before, .device::after { content: ""; position: absolute; width: 3px; border-radius: 2px; background: linear-gradient(90deg, #3B4056, #20232F); }
+.device::before { left: -3px; top: 17%; height: 5%; box-shadow: 0 calc(var(--dh, 520px) * .085) 0 0 #2C3042, 0 calc(var(--dh, 520px) * .17) 0 0 #2C3042; }
+.device::after { right: -3px; top: 25%; height: 9%; }
+.island { position: absolute; z-index: 3; top: 3.6%; left: 50%; width: 29%; height: 3.4%; transform: translateX(-50%); border-radius: 999px; background: #000; box-shadow: 0 0 0 1px rgba(255,255,255,.03); }
+.device img { z-index: 1; }
+
+/* ── 4. 장면별 큰 문장 ── */
+.step h3 { font-size: clamp(26px, 6.6vw, 38px); }
+@media (min-width: 900px) { .step h3 { font-size: clamp(34px, 3.8vw, 54px); line-height: 1.15; } .step p { font-size: 18.5px; } }
+
+/* 휴대폰 화면의 "이렇게 써요": 휴대폰과 설명을 함께 위쪽에 고정하고, 스크롤용 단계는 보이지 않게 둔다 */
+.tour .caption { display: none; }
+@media (max-width: 899px) {
+  .tour-stage { top: 0; height: 100svh; padding-top: 64px; justify-content: flex-start; }
+  .device { height: min(50svh, 460px); }
+  .tour .caption { display: block; width: 100%; max-width: 420px; margin-top: 20px; min-height: 7.5em; text-align: center; }
+  .tour .caption .num { display: block; font-family: var(--display); font-weight: 800; font-size: 14px; color: var(--ember); margin-bottom: 4px; }
+  .tour .caption h3 { font-family: var(--display); font-weight: 800; font-size: clamp(22px, 6.2vw, 28px); letter-spacing: -0.5px; line-height: 1.25; margin: 0 0 6px; }
+  .tour .caption p { margin: 0; color: #C9CBD8; font-size: 15px; text-wrap: balance; }
+  .tour .caption.in { animation: cap-in .45s cubic-bezier(.2,.8,.2,1); }
+  .dots { order: -1; margin: 0 0 12px; }
+  .tour .step .card { visibility: hidden; }
+  .tour .step { min-height: 70svh; }
+}
+@keyframes cap-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .tour .caption.in { animation: none; } }

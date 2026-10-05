@@ -27,8 +27,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion');</script>
 </head>
 <body>
+<div class="sky" aria-hidden="true"><div class="stars"></div><div class="dawn"></div></div>
 <div class="wrap">
   <header class="top">
     <a href="index.html" style="display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none"><img src="icon.png" alt=""><span class="name">Kairos</span></a>
@@ -40,13 +42,21 @@
   </header>
 
   <main>
+    <div class="scene hero-scene" data-scene="hero" data-steps="4">
+    <div class="sticky">
     <div class="hero">
-      <div>
+      <div class="hero-copy">
         <h1>내 일정에 맞춰 알람이<br>알아서 켜지고 꺼져요</h1>
-        <p>평일 아침마다 깨우다가 공휴일과 휴가엔 울리지 않아요. 알람을 그룹으로 묶고 요일만 정해 두면, 쉬는 날은 Kairos가 챙겨요.</p>
+        <ol class="story" aria-label="스크롤하면 달력이 바뀌어요">
+          <li data-i="0">평일엔 요일대로 울리고</li>
+          <li data-i="1">공휴일엔 알아서 쉬고</li>
+          <li data-i="2">'휴가' 일정이 있으면 쉬고</li>
+          <li data-i="3">'주말 출근' 일정이면 울려요</li>
+        </ol>
         <span class="soon"><span class="pip" aria-hidden="true"></span><b>iPhone 앱</b> 곧 App Store에서 만나요</span>
       </div>
 
+      <div class="demo-col">
       <div class="demo" aria-labelledby="demo-title">
         <div class="demo-head">
           <span class="month" id="demo-title">출근 · 2026년 10월</span>
@@ -61,46 +71,82 @@
             <span><i style="background:linear-gradient(160deg,rgba(255,193,90,.6),rgba(255,94,58,.5))"></i>울림</span>
             <span><i style="background:rgba(242,239,233,.08)"></i>쉼</span>
             <span><i style="background:transparent;box-shadow:inset 0 0 0 1px #F0857A"></i>공휴일</span>
+            <span><i style="background:transparent;box-shadow:inset 0 0 0 1.5px #8C8CFF"></i>캘린더 일정</span>
           </div>
         </div>
-        <p class="hint">날짜를 눌러 보세요. 그날만 바뀌어요.</p>
+        <div class="rules" role="group" aria-label="캘린더 규칙">
+          <span class="rules-label">캘린더 규칙</span>
+          <button class="chip" id="rule-rest" type="button" aria-pressed="false">'휴가' 일정이면 쉬기</button>
+          <button class="chip" id="rule-ring" type="button" aria-pressed="false">'주말 출근' 일정이면 울리기</button>
+        </div>
+      </div>
+      <p class="hint">날짜를 누르거나 규칙을 켜 보세요.<br>새 공휴일은 앱 업데이트 없이 자동으로 받아요.</p>
       </div>
     </div>
+    </div>
+    </div>
 
-    <section aria-labelledby="how">
-      <h2 id="how">이렇게 써요</h2>
-      <ol class="steps">
-        <li><h3>그룹을 만들어요</h3><p>출근, 운동처럼 함께 울릴 알람을<br>한 그룹에 담아요.</p></li>
-        <li><h3>알람 요일을 정해요</h3><p>요일을 고르고 '공휴일에도 울리기'를 켤지 정해요.<br>그룹 안 알람이 모두 따라가요.</p></li>
-        <li><h3>캘린더 규칙을 더해요</h3><p>'휴가' 일정이면 쉬고,<br>'주말 출근' 일정이면 울리게 정해요.</p></li>
-      </ol>
-    </section>
-
-    <section aria-labelledby="screens">
-      <h2 id="screens">화면으로 보기</h2>
-      <div class="shots">
-        <figure><img src="shots/screen-1.jpg" width="660" height="1435" loading="lazy" alt="알람을 그룹으로 묶어 한눈에 화면"><figcaption>알람을 그룹으로 묶어 한눈에</figcaption></figure>
-        <figure><img src="shots/screen-2.jpg" width="660" height="1435" loading="lazy" alt="요일과 공휴일, 날짜를 달력에서 화면"><figcaption>요일과 공휴일, 날짜를 달력에서</figcaption></figure>
-        <figure><img src="shots/screen-3.jpg" width="660" height="1435" loading="lazy" alt="원하는 단어로 캘린더 규칙 화면"><figcaption>원하는 단어로 캘린더 규칙</figcaption></figure>
-        <figure><img src="shots/screen-4.jpg" width="660" height="1435" loading="lazy" alt="'휴가' 일정인 날은 쉬어요 화면"><figcaption>'휴가' 일정인 날은 쉬어요</figcaption></figure>
-        <figure><img src="shots/screen-5.jpg" width="660" height="1435" loading="lazy" alt="'주말 출근'인 날은 울려요 화면"><figcaption>'주말 출근'인 날은 울려요</figcaption></figure>
+    <section class="tour" aria-labelledby="screens">
+      <h2 id="screens">이렇게 써요</h2>
+      <div class="tour-grid">
+        <div class="tour-stage" aria-hidden="false">
+          <div class="device">
+            <span class="island" aria-hidden="true"></span>
+          <img src="shots/screen-1.jpg" width="660" height="1435" alt="출근·운동 그룹과 다음 알람이 보이는 알람 탭" class="on" data-i="0">
+          <img src="shots/screen-2.jpg" width="660" height="1435" alt="반복 요일과 달력이 보이는 그룹 편집" data-i="1" loading="lazy">
+          <img src="shots/screen-3.jpg" width="660" height="1435" alt="'휴가'·'재택'이면 쉬고 '주말 출근'이면 울리는 캘린더 규칙" data-i="2" loading="lazy">
+          <img src="shots/screen-4.jpg" width="660" height="1435" alt="'휴가' 일정이라 출근 알람이 쉬는 날" data-i="3" loading="lazy">
+          <img src="shots/screen-5.jpg" width="660" height="1435" alt="토요일이지만 '주말 출근' 일정이라 알람이 울리는 날" data-i="4" loading="lazy">
+          <img src="shots/screen-6.jpg" width="660" height="1435" alt="오늘 알람을 끄고 '다음 알람부터 켜기'가 보이는 알람 탭" data-i="5" loading="lazy">
+          </div>
+          <div class="caption" aria-hidden="true"></div>
+          <div class="dots" aria-hidden="true"><i data-i="0" class="on"></i><i data-i="1"></i><i data-i="2"></i><i data-i="3"></i><i data-i="4"></i><i data-i="5"></i></div>
+        </div>
+        <div class="tour-steps">
+        <div class="step" data-i="0"><div class="card"><span class="num">01</span><h3>알람은 그룹으로</h3><p>출근, 운동처럼 함께 울릴 알람을 묶어 두면<br>스위치 하나로 모두 켜고 꺼요.</p></div></div>
+        <div class="step" data-i="1"><div class="card"><span class="num">02</span><h3>요일과 날짜는 달력에서</h3><p>그룹마다 반복 요일과 공휴일을 정하고,<br>연차나 대체 출근일은 날짜를 눌러 바꿔요.</p></div></div>
+        <div class="step" data-i="2"><div class="card"><span class="num">03</span><h3>캘린더 규칙은 단어 하나로</h3><p>'휴가'처럼 원하는 단어를 정해 두면,<br>그 일정이 있는 날 알아서 쉬거나 울려요.</p></div></div>
+        <div class="step" data-i="3"><div class="card"><span class="num">04</span><h3>휴가엔 알아서 쉬어요</h3><p>캘린더에 '휴가'가 있는 날은 출근 알람이 쉬고,<br>일정 탭에서 왜 쉬는지 바로 보여요.</p></div></div>
+        <div class="step" data-i="4"><div class="card"><span class="num">05</span><h3>주말 출근엔 울려요</h3><p>토요일이어도 '주말 출근' 일정이 있으면<br>평소처럼 출근 알람이 울려요.</p></div></div>
+        <div class="step" data-i="5"><div class="card"><span class="num">06</span><h3>오늘만 쉬어 가요</h3><p>오늘 알람만 끄고 싶을 땐<br>'다음 알람부터 켜기'를 누르면 내일부터 다시 울려요.</p></div></div>
+        </div>
       </div>
     </section>
 
-    <section aria-labelledby="more">
-      <h2 id="more">알아서 챙겨 줘요</h2>
-      <div class="features">
-        <div><h3>공휴일엔 쉬어요</h3><p>평일 공휴일엔 쉬고, 대체공휴일과 노동절까지 포함해요.<br>새 공휴일이 생기면 앱 업데이트 없이 받아요.</p></div>
-        <div><h3>그날만 바꿔요</h3><p>연차나 대체 출근일은<br>달력에서 날짜를 한 번 누르면 끝이에요.</p></div>
-        <div><h3>오늘만 쉬어 가요</h3><p>오늘 알람만 끄고 싶을 땐<br>'다음 알람부터 켜기'를 눌러요.</p></div>
-        <div><h3>전날 미리 알려 줘요</h3><p>전날 정해 둔 시각에<br>내일 울릴 알람과 쉬는 이유를 알려 드려요.</p></div>
+    <section class="scene brief-scene" data-scene="brief" data-steps="4" aria-labelledby="brief-title">
+    <div class="sticky">
+    <div class="brief">
+      <div class="brief-copy">
+        <h2 id="brief-title">전날 밤, 내일을 알려 줘요</h2>
+        <p>정해 둔 시각에 내일 울릴 알람과<br>쉬는 이유를 알림으로 보내요.</p>
+        <div class="tabs" role="tablist" aria-label="내일 상황">
+          <button role="tab" type="button" aria-selected="true" data-k="weekday">평일</button>
+          <button role="tab" type="button" aria-selected="false" data-k="holiday">공휴일</button>
+          <button role="tab" type="button" aria-selected="false" data-k="vacation">휴가</button>
+          <button role="tab" type="button" aria-selected="false" data-k="none">알람 없는 날</button>
+        </div>
       </div>
+      <div class="lock" aria-live="polite">
+        <div class="lock-time">21:00</div>
+        <div class="lock-date" id="lock-date">10월 8일 목요일</div>
+        <div class="noti">
+          <img src="icon.png" alt="" width="38" height="38">
+          <div class="noti-text">
+            <div class="noti-head"><b>내일 알람</b><span>지금</span></div>
+            <div class="noti-body" id="noti-body">내일 06:50부터 알람 3개가 울려요.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
     </section>
 
-    <section class="privacy" aria-labelledby="priv">
-      <h2 id="priv">알람은 아이폰 안에만 있어요</h2>
-      <p>계정도, 서버도, 광고도 없어요. 알람 설정과 캘린더 일정은 아이폰 밖으로 나가지 않아요.</p>
-      <p><a href="privacy.html">개인정보처리방침 읽기</a></p>
+    <section class="scene privacy privacy-scene" data-scene="privacy" data-steps="3" aria-labelledby="priv">
+    <div class="sticky"><div class="sticky-inner">
+      <h2 id="priv">내 일정은 내 아이폰에만</h2>
+      <p class="statement" id="statement">가입도, 서버도, 광고도 없어요.<br>캘린더 일정은 어디에도 보내지 않아요.</p>
+      <p class="privacy-link"><a href="privacy.html">개인정보처리방침 읽기</a></p>
+    </div></div>
     </section>
   </main>
 </div>
@@ -127,6 +173,12 @@
   var firstDow = new Date(year, month, 1).getDay();
   var days = new Date(year, month + 1, 0).getDate();
   var ringOnHolidays = false;
+  var restRule = false, ringRule = false, holidayRest = true;
+  // 데모용 캘린더 일정: 이번 달 셋째 주 월–수 '휴가', 그 주 토요일 '주말 출근'.
+  var firstMon = 1 + ((8 - firstDow) % 7);
+  var vacStart = firstMon + 14 > days - 5 ? firstMon + 7 : firstMon + 14;
+  var vacation = [vacStart, vacStart + 1, vacStart + 2];
+  var weekendShift = vacStart + 5;
   var changed = {}; // 날짜별 직접 바꾼 값: true=울림, false=쉼
   var grid = document.getElementById("grid");
   var count = document.getElementById("count");
@@ -167,24 +219,35 @@
     // 켜면 요일과 상관없이 모든 공휴일에 울리고, 끄면 월–금 공휴일에만 쉬어요(앱과 같다).
     // 토·일 공휴일은 끔이어도 고른 요일대로예요.
     if (holidayName(day)) {
-      if (ringOnHolidays) return true;
+      if (ringOnHolidays || !holidayRest) return weekdays.indexOf(dow) >= 0 || ringOnHolidays;
       if (dow >= 1 && dow <= 5) return false;
     }
     return weekdays.indexOf(dow) >= 0;
   }
-  function rings(day) { return day in changed ? changed[day] : baseRings(day); }
+  function ruled(day) {
+    if (restRule && vacation.indexOf(day) >= 0) return false;
+    if (ringRule && day === weekendShift) return true;
+    return baseRings(day);
+  }
+  function rings(day) { return day in changed ? changed[day] : ruled(day); }
+  function eventName(day) {
+    if (vacation.indexOf(day) >= 0) return "휴가";
+    if (day === weekendShift) return "주말 출근";
+    return null;
+  }
 
   function render(intro) {
     var n = 0;
     cells.forEach(function (c) {
       var day = +c.dataset.day, on = rings(day), name = holidayName(day);
       if (on) n++;
-      c.className = "day" + (on ? " ring" : "") + (name ? " holiday" : "") +
+      var ev = eventName(day);
+      c.className = "day" + (on ? " ring" : "") + (name ? " holiday" : "") + (ev ? " event" : "") +
         (day in changed ? " changed" : "") + (day === today ? " today" : "") + (intro && on ? " intro" : "");
       c.setAttribute("aria-label", (month + 1) + "월 " + day + "일" + (name ? " " + name : "") +
-        (day === today ? ", 오늘" : "") + ", " + (on ? "울림" : "쉼") + (day in changed ? ", 직접 바꿈" : ""));
+        (day === today ? ", 오늘" : "") + (ev ? ", '" + ev + "' 일정" : "") + ", " + (on ? "울림" : "쉼") + (day in changed ? ", 직접 바꿈" : ""));
       c.setAttribute("aria-pressed", on ? "true" : "false");
-      if (name) c.title = name; else c.removeAttribute("title");
+      if (name || ev) c.title = [name, ev && "'" + ev + "' 일정"].filter(Boolean).join(" · "); else c.removeAttribute("title");
     });
     count.textContent = n + "일 울려요";
   }
@@ -192,7 +255,7 @@
   function onTap(e) {
     var day = +e.currentTarget.dataset.day;
     if (day in changed) delete changed[day];
-    else changed[day] = !baseRings(day);
+    else changed[day] = !ruled(day);
     render(false);
   }
 
@@ -201,6 +264,26 @@
     toggle.setAttribute("aria-checked", ringOnHolidays ? "true" : "false");
     render(false);
   });
+
+  function bindRule(id, set) {
+    var el = document.getElementById(id);
+    el.addEventListener("click", function () {
+      var on = el.getAttribute("aria-pressed") !== "true";
+      el.setAttribute("aria-pressed", on ? "true" : "false");
+      set(on);
+      render(false);
+    });
+  }
+  bindRule("rule-rest", function (on) { restRule = on; });
+  bindRule("rule-ring", function (on) { ringRule = on; });
+  // 스크롤 단계: 0 요일대로 → 1 공휴일 쉼 → 2 '휴가' 쉼 → 3 '주말 출근' 울림.
+  window.KairosDemo = { stage: function (step) {
+    holidayRest = step >= 1; restRule = step >= 2; ringRule = step >= 3;
+    document.getElementById("rule-rest").setAttribute("aria-pressed", restRule ? "true" : "false");
+    document.getElementById("rule-ring").setAttribute("aria-pressed", ringRule ? "true" : "false");
+    changed = {};
+    render(false);
+  } };
 
   render(true);
 
@@ -218,6 +301,138 @@
       })
       .catch(function () {});
   }
+})();
+</script>
+<script>
+// 화면으로 보기: 화면 가운데에 가장 가까운 설명에 맞춰 휴대폰 화면을 바꾼다.
+(function () {
+  var steps = Array.prototype.slice.call(document.querySelectorAll('.tour .step'));
+  var shots = document.querySelectorAll('.tour .device img');
+  var dots = document.querySelectorAll('.tour .dots i');
+  var caption = document.querySelector('.tour .caption');
+  if (!steps.length) return;
+  var current = null;
+  function show(i) {
+    if (i === current) return;
+    current = i;
+    shots.forEach(function (img) { img.classList.toggle('on', img.dataset.i === i); });
+    dots.forEach(function (d) { d.classList.toggle('on', d.dataset.i === i); });
+    steps.forEach(function (s) { s.classList.toggle('on', s.dataset.i === i); });
+    // 휴대폰 화면: 휴대폰 아래 고정 칸에 지금 단계의 설명을 보인다(설명이 휴대폰 위로 지나가지 않게).
+    if (caption) {
+      var card = steps.filter(function (s) { return s.dataset.i === i; })[0];
+      caption.classList.remove('in'); void caption.offsetWidth;
+      caption.innerHTML = card ? card.querySelector('.card').innerHTML : '';
+      caption.classList.add('in');
+    }
+  }
+  function update() {
+    var mid = window.innerHeight / 2, best = steps[0], gap = Infinity;
+    steps.forEach(function (s) {
+      var r = s.getBoundingClientRect(), d = Math.abs(r.top + r.height / 2 - mid);
+      if (d < gap) { gap = d; best = s; }
+    });
+    show(best.dataset.i);
+  }
+  // 설명은 다섯 개뿐이라 스크롤마다 바로 계산해도 가볍다(백그라운드 탭에서 멈추는 requestAnimationFrame에 기대지 않는다).
+  function onScroll() { update(); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  // 화면을 미리 받아 둬서 바뀔 때 비어 보이지 않게 한다.
+  shots.forEach(function (img) { img.loading = 'eager'; });
+  update();
+})();
+</script>
+<script>
+// 전날 밤 알림 미리보기: 앱이 실제로 보내는 문구. 스크롤(또는 버튼)로 바꾼다.
+(function () {
+  var texts = {
+    weekday: "내일 06:50부터 알람 3개가 울려요.",
+    holiday: "내일은 한글날이에요. 19:30에 알람이 울리고, 3개는 쉬어요.",
+    vacation: "내일은 '휴가' 일정이 있어요. 예정된 알람이 없어요.",
+    none: "내일은 예정된 알람이 없어요."
+  };
+  var dates = { weekday: "10월 7일 수요일", holiday: "10월 8일 목요일", vacation: "10월 11일 일요일", none: "10월 10일 토요일" };
+  var tabs = document.querySelectorAll('.brief .tabs button');
+  var body = document.getElementById('noti-body');
+  var date = document.getElementById('lock-date');
+  var noti = document.querySelector('.brief .noti');
+  if (!tabs.length) return;
+  var current = null;
+  function pick(k) {
+    if (k === current) return;
+    current = k;
+    tabs.forEach(function (t) { t.setAttribute('aria-selected', t.dataset.k === k ? 'true' : 'false'); });
+    noti.classList.remove('in'); void noti.offsetWidth;
+    body.textContent = texts[k]; date.textContent = dates[k];
+    noti.classList.add('in');
+  }
+  tabs.forEach(function (t) { t.addEventListener('click', function () { pick(t.dataset.k); }); });
+  window.KairosBrief = { order: ['weekday', 'holiday', 'vacation', 'none'], pick: pick };
+  pick('weekday');
+})();
+</script>
+<script>
+// 페이지 움직임: 고정된 장면을 스크롤만큼 진행한다(맨 위 달력, 알림, 기능 카드, 개인정보 문장).
+(function () {
+  var root = document.documentElement;
+  var reduce = root.className.indexOf('motion') < 0;
+  // 제목은 화면에 들어올 때 단어 단위로 보인다.
+  if (!reduce) {
+    document.querySelectorAll('main h2').forEach(function (h) {
+      h.innerHTML = h.textContent.split(' ').map(function (w, i) { return '<span class="w" style="--i:' + i + '">' + w + '</span>'; }).join(' ');
+      h.classList.add('reveal', 'words');
+    });
+  }
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  // 개인정보 문장은 단어마다 나눈다.
+  var st = document.getElementById('statement'), words = [];
+  if (st) {
+    // 줄바꿈(<br>)은 그대로 두고 줄마다 단어를 나눈다.
+    st.innerHTML = st.innerHTML.split(/<br\s*\/?>/i).map(function (line) {
+      return line.trim().split(' ').map(function (w) { return '<span>' + w + '</span>'; }).join(' ');
+    }).join('<br>');
+    words = Array.prototype.slice.call(st.querySelectorAll('span'));
+  }
+  var lines = Array.prototype.slice.call(document.querySelectorAll('.hero-scene .story li'));
+  var scenes = Array.prototype.slice.call(document.querySelectorAll('[data-scene]'));
+  var last = {};
+  var run = {
+    hero: function (p, step) {
+      lines.forEach(function (li, i) { li.classList.toggle('on', i <= step); li.classList.toggle('now', i === step); });
+      if (last.hero !== step && window.KairosDemo) window.KairosDemo.stage(step);
+      last.hero = step;
+    },
+    brief: function (p, step) {
+      if (window.KairosBrief && last.brief !== step) window.KairosBrief.pick(window.KairosBrief.order[step]);
+      last.brief = step;
+    },
+    privacy: function (p) {
+      var lit = Math.round(Math.min(1, p / 0.8) * words.length);
+      words.forEach(function (w, i) { w.classList.toggle('lit', i < lit); });
+    }
+  };
+  var rootStyle = document.documentElement.style;
+  function frame() {
+    var vh = innerHeight;
+    // 배경: 페이지를 내려갈수록 밤하늘에서 새벽빛으로 바뀐다.
+    var doc = document.documentElement.scrollHeight - vh;
+    rootStyle.setProperty('--t', doc > 0 ? Math.min(1, scrollY / doc).toFixed(4) : 0);
+    reveals.forEach(function (el) { if (!el.classList.contains('in') && el.getBoundingClientRect().top < vh * 0.9) el.classList.add('in'); });
+
+    scenes.forEach(function (sc) {
+      var r = sc.getBoundingClientRect(), total = sc.offsetHeight - vh;
+      if (total <= 0) return;
+      var p = Math.min(1, Math.max(0, -r.top / total));
+      var n = +sc.dataset.steps || 1;
+      var step = Math.min(n - 1, Math.floor(p * n));
+      var fn = run[sc.dataset.scene];
+      if (fn) fn(p, step);
+    });
+  }
+  window.addEventListener('scroll', frame, { passive: true });
+  window.addEventListener('resize', frame);
+  frame();
 })();
 </script>
 </body>
