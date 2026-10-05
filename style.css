@@ -90,7 +90,7 @@ h2 { font-family: var(--display); font-weight: 700; font-size: clamp(26px, 3.4vw
 .steps li { counter-increment: step; }
 .steps li::before { content: counter(step); display: block; font-family: var(--display); font-weight: 800; font-size: 40px; line-height: 1; color: var(--ember); margin-bottom: 12px; }
 .steps h3, .features h3 { font-size: 18px; font-weight: 600; margin: 0 0 6px; }
-.steps p, .features p { margin: 0; color: #B9BCCB; font-size: 15.5px; }
+.steps p, .features p { margin: 0; color: #B9BCCB; font-size: 15.5px; text-wrap: pretty; }
 
 .features { display: grid; gap: 28px 48px; }
 @media (min-width: 760px) { .features { grid-template-columns: 1fr 1fr; } }
