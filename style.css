@@ -38,9 +38,15 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 }
 @media (min-width: 900px) { .hero h1 { font-size: clamp(40px, 4vw, 54px); } }
 .hero p { font-size: 18px; color: #C9CBD8; max-width: 30em; margin: 0 0 28px; }
-.soon { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; color: var(--mist); }
-.soon b { color: var(--paper); font-weight: 600; }
-.soon .pip { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 10px 2px rgba(255,193,90,.6); }
+.store-badge { display: inline-block; line-height: 0; border-radius: 10px; transition: transform .2s ease, opacity .2s ease; }
+.store-badge:hover { transform: translateY(-1px); opacity: .9; }
+.store-badge:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.store-badge img { height: 48px; width: auto; }
+.get { padding: 96px 0 104px; text-align: center; }
+.get .get-icon { border-radius: 22%; box-shadow: 0 18px 50px rgba(0,0,0,.45); margin: 0 auto 22px; display: block; }
+.get h2 { margin: 0 0 8px; }
+.get p { margin: 0 0 26px; color: var(--mist); font-size: 15px; }
+.get .store-badge img { height: 52px; }
 
 /* calendar demo — the one loud thing on the page */
 .demo {
@@ -210,7 +216,7 @@ section.tour { padding-bottom: 0; }
 .motion h2.words.in .w { opacity: 1; transform: none; }
 .motion .demo.reveal.in { transform: translateY(var(--py, 0px)); transition: opacity .8s ease .15s, transform .2s linear; }
 .motion .hero p.reveal { transition-delay: .12s; }
-.motion .soon.reveal { transition-delay: .22s; }
+.motion .hero-copy .store-badge.reveal { transition-delay: .22s; }
 .chip.nudge { animation: nudge 1.6s ease-in-out var(--d, 0s) 2; }
 @keyframes nudge { 0%, 100% { box-shadow: 0 0 0 0 rgba(140,140,255,0); } 50% { box-shadow: 0 0 0 6px rgba(140,140,255,.25); border-color: rgba(140,140,255,.9); } }
 
@@ -241,7 +247,7 @@ section.tour { padding-bottom: 0; }
   .hero-scene h1 { margin-bottom: 14px; }
   .story { margin-bottom: 0; gap: 3px; }
   .story li { font-size: 15px; }
-  .hero-scene .soon { display: none; }
+  .hero-scene .store-badge img { height: 40px; }
   .hero-scene .demo { padding: 14px 14px 12px; }
   .hero-scene .grid { gap: 4px; }
   .hero-scene .hint { display: none; }
