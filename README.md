@@ -7,10 +7,10 @@
 휴가 전날 알람 끄는 걸 깜빡하거나, 주말 출근 날 알람 켜 두는 걸 잊은 적 있나요? Kairos는 공휴일과 캘린더 일정을 보고 그날 울릴지 쉴지를 알아서 정해요. 아이폰 기본 시계 앱과 같은 방식으로 쓰면서, 날마다 직접 챙기던 일을 대신 해 줘요.
 
 <p>
-  <img src="shots/screen-1.jpg" alt="출근·운동 그룹과 다음 알람이 보이는 알람 탭" width="200">
-  <img src="shots/screen-2.jpg" alt="반복 요일과 달력이 보이는 그룹 편집" width="200">
-  <img src="shots/screen-3.jpg" alt="'휴가'·'재택'이면 쉬고 '주말 출근'이면 울리는 캘린더 규칙" width="200">
-  <img src="shots/screen-6.jpg" alt="오늘 알람을 끄고 '다음 알람부터 켜기'가 보이는 알람 탭" width="200">
+  <img src="promo/promo-1.jpg" alt="휴일마다 알람 끄지 마세요" width="200">
+  <img src="promo/promo-2.jpg" alt="공휴일엔 알아서 쉬어요" width="200">
+  <img src="promo/promo-3.jpg" alt="휴가 일정이면 쉬어요" width="200">
+  <img src="promo/promo-4.jpg" alt="내일부터 다시 켜져요" width="200">
 </p>
 
 ## 이런 걸 할 수 있어요
