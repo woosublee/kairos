@@ -4,7 +4,8 @@
 
 <a href="https://apps.apple.com/kr/app/kairos-smart-alarm/id6819537411"><img src="appstore-badge.svg" alt="App Store에서 다운로드" height="48"></a>
 
-휴가 전날 알람 끄는 걸 깜빡하거나, 주말 출근 날 알람 켜 두는 걸 잊은 적 있나요? Kairos는 공휴일과 캘린더 일정을 보고 그날 울릴지 쉴지를 알아서 정해요. 아이폰 기본 시계 앱과 같은 방식으로 쓰면서, 날마다 직접 챙기던 일을 대신 해 줘요.
+휴가 전날 알람 끄는 걸 깜빡하거나, 주말 출근 날 알람 켜 두는 걸 잊은 적 있나요?
+Kairos는 공휴일과 캘린더 일정을 보고 그날 울릴지 쉴지를 알아서 정해요. 아이폰 기본 시계 앱과 같은 방식으로 쓰면서, 날마다 직접 챙기던 일을 대신 해 줘요.
 
 <p>
   <img src="promo/promo-1.jpg" alt="휴일마다 알람 끄지 마세요" width="200">
