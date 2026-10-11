@@ -1,0 +1,22 @@
+{
+  "country": "US",
+  "coverageEndExclusive": "2028-01-01",
+  "coverageStart": "2026-01-01",
+  "files": [
+    {
+      "filename": "holidays-2026.json",
+      "sha256": "63ad000055b7b2514aabf2ef9ea1807b1bb525323e85dc54eb6b54616acaf433",
+      "year": 2026
+    },
+    {
+      "filename": "holidays-2027.json",
+      "sha256": "d7ce31466f3f9141095b77f555155aa64be73f0c0a324b392534a0fe6afb47e0",
+      "year": 2027
+    }
+  ],
+  "schemaVersion": 2,
+  "sourceURLs": [
+    "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/"
+  ],
+  "verifiedAt": "2026-10-11"
+}

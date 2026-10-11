@@ -1,0 +1,115 @@
+{
+  "country": "US",
+  "holidays": [
+    {
+      "date": "2026-01-01",
+      "kind": "federal",
+      "names": {
+        "en": "New Year’s Day",
+        "ko": "새해 첫날"
+      },
+      "sourceURL": "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/"
+    },
+    {
+      "date": "2026-01-19",
+      "kind": "federal",
+      "names": {
+        "en": "Martin Luther King Jr. Day",
+        "ko": "마틴 루서 킹 주니어 데이"
+      },
+      "sourceURL": "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/"
+    },
+    {
+      "date": "2026-02-16",
+      "kind": "federal",
+      "names": {
+        "en": "Presidents’ Day",
+        "ko": "대통령의 날"
+      },
+      "sourceURL": "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/"
+    },
+    {
+      "date": "2026-05-25",
+      "kind": "federal",
+      "names": {
+        "en": "Memorial Day",
+        "ko": "메모리얼 데이"
+      },
+      "sourceURL": "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/"
+    },
+    {
+      "date": "2026-06-19",
+      "kind": "federal",
+      "names": {
+        "en": "Juneteenth",
+        "ko": "준틴스"
+      },
+      "sourceURL": "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/"
+    },
+    {
+      "date": "2026-07-03",
+      "kind": "federalObserved",
+      "names": {
+        "en": "Independence Day (observed)",
+        "ko": "대체공휴일(독립기념일)"
+      },
+      "sourceURL": "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/"
+    },
+    {
+      "date": "2026-07-04",
+      "kind": "federal",
+      "names": {
+        "en": "Independence Day",
+        "ko": "독립기념일"
+      },
+      "sourceURL": "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/"
+    },
+    {
+      "date": "2026-09-07",
+      "kind": "federal",
+      "names": {
+        "en": "Labor Day",
+        "ko": "노동절"
+      },
+      "sourceURL": "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/"
+    },
+    {
+      "date": "2026-10-12",
+      "kind": "federal",
+      "names": {
+        "en": "Columbus Day",
+        "ko": "콜럼버스 데이"
+      },
+      "sourceURL": "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/"
+    },
+    {
+      "date": "2026-11-11",
+      "kind": "federal",
+      "names": {
+        "en": "Veterans Day",
+        "ko": "재향군인의 날"
+      },
+      "sourceURL": "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/"
+    },
+    {
+      "date": "2026-11-26",
+      "kind": "federal",
+      "names": {
+        "en": "Thanksgiving",
+        "ko": "추수감사절"
+      },
+      "sourceURL": "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/"
+    },
+    {
+      "date": "2026-12-25",
+      "kind": "federal",
+      "names": {
+        "en": "Christmas Day",
+        "ko": "크리스마스"
+      },
+      "sourceURL": "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/"
+    }
+  ],
+  "schemaVersion": 2,
+  "year": 2026
+}
