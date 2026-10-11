@@ -66,7 +66,7 @@
         <div class="grid" id="grid" role="group" aria-label="10월 달력. 날짜를 누르면 그날만 바뀌어요"></div>
         <div class="demo-foot">
           <button class="switch" id="holiday" role="switch" aria-checked="false">
-            <span class="track" aria-hidden="true"></span>공휴일에도 울리기
+            <span class="track" aria-hidden="true"></span>공휴일에는 쉬기
           </button>
           <div class="legend" aria-hidden="true">
             <span><i style="background:linear-gradient(160deg,rgba(255,193,90,.6),rgba(255,94,58,.5))"></i>울림</span>
@@ -211,8 +211,9 @@
   var weekdays = [1, 2, 3, 4, 5]; // 월–금 (0=일)
   var firstDow = new Date(year, month, 1).getDay();
   var days = new Date(year, month + 1, 0).getDate();
-  var ringOnHolidays = false;
-  var restRule = false, ringRule = false, holidayRest = true;
+  // '공휴일에는 쉬기'(앱과 같이 끔이 기본). 켜면 고른 요일이 공휴일일 때 쉬고, 끄면 공휴일이어도 요일대로 울린다.
+  var restOnHolidays = false;
+  var restRule = false, ringRule = false;
   // 데모용 캘린더 일정: 이번 달 셋째 주 월–수 '휴가', 그 주 토요일 '주말 출근'.
   var firstMon = 1 + ((8 - firstDow) % 7);
   var vacStart = firstMon + 14 > days - 5 ? firstMon + 7 : firstMon + 14;
@@ -255,12 +256,8 @@
 
   function baseRings(day) {
     var dow = (firstDow + day - 1) % 7;
-    // 켜면 요일과 상관없이 모든 공휴일에 울리고, 끄면 월–금 공휴일에만 쉬어요(앱과 같다).
-    // 토·일 공휴일은 끔이어도 고른 요일대로예요.
-    if (holidayName(day)) {
-      if (ringOnHolidays || !holidayRest) return weekdays.indexOf(dow) >= 0 || ringOnHolidays;
-      if (dow >= 1 && dow <= 5) return false;
-    }
+    // 공휴일 설정은 고른 요일에만 적용된다(앱과 같다). 고르지 않은 요일의 공휴일에는 울리지 않는다.
+    if (restOnHolidays && holidayName(day)) return false;
     return weekdays.indexOf(dow) >= 0;
   }
   function ruled(day) {
@@ -298,9 +295,12 @@
     render(false);
   }
 
+  function setRestOnHolidays(on) {
+    restOnHolidays = on;
+    toggle.setAttribute("aria-checked", on ? "true" : "false");
+  }
   toggle.addEventListener("click", function () {
-    ringOnHolidays = !ringOnHolidays;
-    toggle.setAttribute("aria-checked", ringOnHolidays ? "true" : "false");
+    setRestOnHolidays(!restOnHolidays);
     render(false);
   });
 
@@ -317,7 +317,7 @@
   bindRule("rule-ring", function (on) { ringRule = on; });
   // 스크롤 단계: 0 요일대로 → 1 공휴일 쉼 → 2 '휴가' 쉼 → 3 '주말 출근' 울림.
   window.KairosDemo = { stage: function (step) {
-    holidayRest = step >= 1; restRule = step >= 2; ringRule = step >= 3;
+    setRestOnHolidays(step >= 1); restRule = step >= 2; ringRule = step >= 3;
     document.getElementById("rule-rest").setAttribute("aria-pressed", restRule ? "true" : "false");
     document.getElementById("rule-ring").setAttribute("aria-pressed", ringRule ? "true" : "false");
     changed = {};
