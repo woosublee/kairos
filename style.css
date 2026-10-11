@@ -197,7 +197,8 @@ section.tour { padding-bottom: 0; }
 .noti-text { flex: 1; min-width: 0; }
 .noti-head { display: flex; justify-content: space-between; font-size: 14px; color: #F7F4EE; }
 .noti-head span { color: rgba(242,239,233,.6); font-size: 13px; }
-.noti-body { margin-top: 2px; font-size: 14.5px; color: rgba(247,244,238,.92); line-height: 1.45; }
+.noti-sub { margin-top: 2px; font-size: 14.5px; font-weight: 600; color: #F7F4EE; }
+.noti-body { margin-top: 1px; font-size: 14.5px; color: rgba(247,244,238,.92); line-height: 1.45; }
 .noti.in { animation: noti-in .45s cubic-bezier(.2,.8,.2,1); }
 @keyframes noti-in { from { opacity: 0; transform: translateY(-10px) scale(.98); } to { opacity: 1; transform: none; } }
 @media (min-width: 900px) {
@@ -323,3 +324,19 @@ body { background: transparent !important; }
 }
 @keyframes cap-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .tour .caption.in { animation: none; } }
+
+/* 알람 끌지 묻기: 스크롤하면 알림을 길게 누르고, 아래에 버튼 메뉴가 나온다 */
+.wake-scene { height: calc(100svh + 3 * 75svh); border-top: 1px solid var(--line); padding: 0; }
+.wake-note { font-size: 14px !important; color: var(--mist) !important; }
+.wake-scene .lock { min-height: 360px; }
+.wake-scene .lock-time, .wake-scene .lock-date { transition: opacity .35s ease, filter .35s ease; }
+.wake-scene .noti { transition: transform .35s cubic-bezier(.2,.8,.2,1); transform-origin: 50% 50%; }
+.wake-scene .lock.press .noti { transform: scale(1.03); }
+.wake-scene .lock.press .lock-time, .wake-scene .lock.press .lock-date { opacity: .25; filter: blur(3px); }
+.noti-actions { margin-top: 8px; width: min(250px, 72%); display: grid; border-radius: 14px; overflow: hidden; text-align: left;
+  background: rgba(40,42,58,.78); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  opacity: 0; transform: translateY(-8px) scale(.94); transform-origin: 20% 0; transition: opacity .3s ease, transform .35s cubic-bezier(.2,.8,.2,1); }
+.wake-scene .lock.menu .noti-actions { opacity: 1; transform: none; }
+.noti-actions span { padding: 11px 15px; font-size: 15px; color: #F7F4EE; }
+.noti-actions span + span { border-top: 1px solid rgba(242,239,233,.12); }
+@media (prefers-reduced-motion: reduce) { .wake-scene .noti, .noti-actions { transition: none; } }

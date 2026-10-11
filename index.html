@@ -104,11 +104,11 @@
           <div class="dots" aria-hidden="true"><i data-i="0" class="on"></i><i data-i="1"></i><i data-i="2"></i><i data-i="3"></i><i data-i="4"></i><i data-i="5"></i></div>
         </div>
         <div class="tour-steps">
-        <div class="step" data-i="0"><div class="card"><span class="num">01</span><h3>알람은 그룹으로</h3><p>출근, 운동처럼 함께 울릴 알람을 묶어 두면<br>스위치 하나로 모두 켜고 꺼요.</p></div></div>
-        <div class="step" data-i="1"><div class="card"><span class="num">02</span><h3>요일과 날짜는 달력에서</h3><p>그룹마다 반복 요일과 공휴일을 정하고,<br>연차나 대체 출근일은 날짜를 눌러 바꿔요.</p></div></div>
-        <div class="step" data-i="2"><div class="card"><span class="num">03</span><h3>캘린더 규칙은 단어 하나로</h3><p>'휴가'처럼 원하는 단어를 정해 두면,<br>그 일정이 있는 날 알아서 쉬거나 울려요.</p></div></div>
-        <div class="step" data-i="3"><div class="card"><span class="num">04</span><h3>휴가엔 알아서 쉬어요</h3><p>캘린더에 '휴가'가 있는 날은 출근 알람이 쉬고,<br>일정 탭에서 왜 쉬는지 바로 보여요.</p></div></div>
-        <div class="step" data-i="4"><div class="card"><span class="num">05</span><h3>주말 출근엔 울려요</h3><p>토요일이어도 '주말 출근' 일정이 있으면<br>평소처럼 출근 알람이 울려요.</p></div></div>
+        <div class="step" data-i="0"><div class="card"><span class="num">01</span><h3>그룹을 만들고 알람을 넣어요</h3><p>'출근'처럼 그룹을 먼저 만들고 그 안에 알람을 넣어요.<br>스위치 하나로 모두 켜고 꺼요.</p></div></div>
+        <div class="step" data-i="1"><div class="card"><span class="num">02</span><h3>요일만 정하면 공휴일은 알아서</h3><p>그룹의 반복 요일만 정하면 공휴일엔 알아서 쉬어요.<br>연차나 대체 출근일은 달력에서 날짜를 눌러 바꿔요.</p></div></div>
+        <div class="step" data-i="2"><div class="card"><span class="num">03</span><h3>캘린더를 연동하고 단어를 정해요</h3><p>그룹 편집에서 아이폰 캘린더를 연동하고 '휴가'처럼 쉴 단어를 정해 두면, 그다음부터는 캘린더에 일정만 넣으면 돼요.</p></div></div>
+        <div class="step" data-i="3"><div class="card"><span class="num">04</span><h3>휴가엔 알아서 쉬어요</h3><p>캘린더에 '휴가' 일정이 있는 날은 출근 알람이 쉬고,<br>일정 탭에서 왜 쉬는지 바로 보여요.</p></div></div>
+        <div class="step" data-i="4"><div class="card"><span class="num">05</span><h3>주말 출근엔 울려요</h3><p>'주말 출근'을 울릴 단어로 정해 두면<br>토요일이어도 그날은 출근 알람이 울려요.</p></div></div>
         <div class="step" data-i="5"><div class="card"><span class="num">06</span><h3>오늘만 쉬어 가요</h3><p>오늘 알람만 끄고 싶을 땐<br>'다음 알람부터 켜기'를 누르면 내일부터 다시 울려요.</p></div></div>
         </div>
       </div>
@@ -133,9 +133,38 @@
         <div class="noti">
           <img src="icon.png" alt="" width="38" height="38">
           <div class="noti-text">
-            <div class="noti-head"><b>내일 알람</b><span>지금</span></div>
-            <div class="noti-body" id="noti-body">내일 06:50부터 알람 3개가 울려요.</div>
+            <div class="noti-head"><b>알람 안내</b><span>지금</span></div>
+            <div class="noti-sub" id="noti-sub">내일 · 10월 8일 (목)</div>
+            <div class="noti-body" id="noti-body">06:50부터 알람 3개가 울려요.</div>
           </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </section>
+
+    <section class="scene wake-scene" data-scene="wake" data-steps="3" aria-labelledby="wake-title">
+    <div class="sticky">
+    <div class="brief">
+      <div class="brief-copy">
+        <h2 id="wake-title">먼저 깼다면, 알람 전에 꺼요</h2>
+        <p>알람이 울리기 15분 전에 끌지 물어봐요.<br>알림을 길게 눌러 그날 알람을 끌 수 있어요.</p>
+        <p class="wake-note">설정 › 알람 끌지 묻기에서 켜요.</p>
+      </div>
+      <div class="lock" id="wake-lock">
+        <div class="lock-time">06:35</div>
+        <div class="lock-date">10월 8일 목요일</div>
+        <div class="noti">
+          <img src="icon.png" alt="" width="38" height="38">
+          <div class="noti-text">
+            <div class="noti-head"><b>이미 일어나셨나요?</b><span>지금</span></div>
+            <div class="noti-sub">출근 · 1차 · 06:50</div>
+            <div class="noti-body">곧 알람이 울려요. 길게 눌러 끌 수 있어요.</div>
+          </div>
+        </div>
+        <div class="noti-actions" aria-label="알림을 길게 누르면 나오는 버튼">
+          <span>출근 알람 모두 끄기</span>
+          <span>1차만 끄기</span>
         </div>
       </div>
     </div>
@@ -357,14 +386,17 @@
 // 전날 밤 알림 미리보기: 앱이 실제로 보내는 문구. 스크롤(또는 버튼)로 바꾼다.
 (function () {
   var texts = {
-    weekday: "내일 06:50부터 알람 3개가 울려요.",
-    holiday: "내일은 한글날이에요. 19:30에 알람이 울리고, 3개는 쉬어요.",
-    vacation: "내일은 '휴가' 일정이 있어요. 예정된 알람이 없어요.",
-    none: "내일은 예정된 알람이 없어요."
+    weekday: "06:50부터 알람 3개가 울려요.",
+    holiday: "19:30에 알람이 울리고, 3개는 쉬어요.",
+    vacation: "'휴가' 일정이 있어서 알람이 쉬어요.",
+    none: "예정된 알람이 없어요."
   };
+  // 부제목은 내일 날짜(공휴일이면 이름까지).
+  var subs = { weekday: "내일 · 10월 8일 (목)", holiday: "내일 · 10월 9일 (금) 한글날", vacation: "내일 · 10월 12일 (월)", none: "내일 · 10월 11일 (일)" };
   var dates = { weekday: "10월 7일 수요일", holiday: "10월 8일 목요일", vacation: "10월 11일 일요일", none: "10월 10일 토요일" };
   var tabs = document.querySelectorAll('.brief .tabs button');
   var body = document.getElementById('noti-body');
+  var sub = document.getElementById('noti-sub');
   var date = document.getElementById('lock-date');
   var noti = document.querySelector('.brief .noti');
   if (!tabs.length) return;
@@ -374,7 +406,7 @@
     current = k;
     tabs.forEach(function (t) { t.setAttribute('aria-selected', t.dataset.k === k ? 'true' : 'false'); });
     noti.classList.remove('in'); void noti.offsetWidth;
-    body.textContent = texts[k]; date.textContent = dates[k];
+    body.textContent = texts[k]; sub.textContent = subs[k]; date.textContent = dates[k];
     noti.classList.add('in');
   }
   tabs.forEach(function (t) { t.addEventListener('click', function () { pick(t.dataset.k); }); });
@@ -416,6 +448,13 @@
     brief: function (p, step) {
       if (window.KairosBrief && last.brief !== step) window.KairosBrief.pick(window.KairosBrief.order[step]);
       last.brief = step;
+    },
+    wake: function (p, step) {
+      var lock = document.getElementById('wake-lock');
+      if (!lock || last.wake === step) return;
+      lock.classList.toggle('press', step >= 1);
+      lock.classList.toggle('menu', step >= 2);
+      last.wake = step;
     },
     privacy: function (p) {
       var lit = Math.round(Math.min(1, p / 0.8) * words.length);
