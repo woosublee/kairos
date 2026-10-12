@@ -3,17 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>지원 — Kairos</title>
-<meta name="description" content="Kairos 사용 중 궁금한 점과 문의 방법을 안내해요.">
+<title data-en="Support — Kairos">지원 — Kairos</title>
+<meta name="description" data-en-content="Common questions about Kairos and how to contact us." content="Kairos 사용 중 궁금한 점과 문의 방법을 안내해요.">
 <meta name="theme-color" content="#141831">
 <link rel="icon" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kairos">
 <meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:url" content="https://kairos.vicals.com/support.html">
-<meta property="og:title" content="지원 — Kairos">
-<meta property="og:description" content="Kairos 사용 중 궁금한 점과 문의 방법을 안내해요.">
+<meta property="og:title" data-en-content="Support — Kairos" content="지원 — Kairos">
+<meta property="og:description" data-en-content="Common questions about Kairos and how to contact us." content="Kairos 사용 중 궁금한 점과 문의 방법을 안내해요.">
 <meta property="og:image" content="https://kairos.vicals.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -27,18 +28,21 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="i18n.js"></script>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
     <a href="index.html" style="display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none"><img src="icon.png" alt=""><span class="name">Kairos</span></a>
-    <nav aria-label="페이지">
-      <a href="index.html">소개</a>
-      <a href="privacy.html">개인정보처리방침</a>
-      <a href="support.html" aria-current="page">지원</a>
+    <nav aria-label="페이지" data-en-aria-label="Pages">
+      <a href="index.html" data-en="About">소개</a>
+      <a href="privacy.html" data-en="Privacy">개인정보처리방침</a>
+      <a href="support.html" aria-current="page" data-en="Support">지원</a>
+      <a class="lang-switch" href="?lang=en" hreflang="en" lang="en">English</a>
     </nav>
   </header>
   <main class="doc">
+  <div data-lang-block="ko">
     <h1>무엇을 도와드릴까요?</h1>
   <p>자주 묻는 질문을 먼저 확인해 보세요. 해결되지 않으면 아래로 문의해 주세요.</p>
 
@@ -46,7 +50,7 @@
   <details>
     <summary>알람이 울리지 않아요</summary>
     <ul>
-      <li>Kairos 앱의 <b>설정 › 권한</b>에서 알람이 '허용됨'인지 확인해 주세요. 꺼져 있으면 설정 맨 위에 경고가 보이고, <b>설정에서 켜기</b>를 누르면 아이폰 <b>설정 › Kairos</b>로 가요.</li>
+      <li>Kairos 앱의 <b>설정 › 정보 › 권한</b>에서 알람이 '허용됨'인지 확인해 주세요. 꺼져 있으면 설정 맨 위에 안내가 보이고, 누르면 아이폰 <b>설정 › Kairos</b>로 가요.</li>
       <li><b>알람</b> 탭 위쪽에 주황색 안내가 보이면 눌러서 확인해 주세요.</li>
       <li>그룹이 꺼져 있거나, 그날이 공휴일·휴가로 쉬는 날인지 <b>일정</b> 탭 달력에서 확인해 보세요.</li>
     </ul>
@@ -61,11 +65,19 @@
   </details>
   <details>
     <summary>잠깐 알람을 끄고 나중에 다시 켜고 싶어요</summary>
-    <p>알람이나 그룹을 끄면 아래에 <b>다시 켤 날 정하기</b>가 생겨요. '다음 알람부터'나 '날짜 고르기…'를 골라 주세요. 그날부터 알아서 다시 울려요.</p>
+    <p>알람이나 그룹을 끄면 바로 아래에 <b>다음 알람부터 켜기</b>가 생겨요. 누르면 다음 알람부터 알아서 다시 울려요. 며칠 쉬어야 하면 그룹 달력에서 그 날짜들을 눌러 쉬게 바꿔 주세요.</p>
+  </details>
+  <details>
+    <summary>미국 공휴일로 바꾸고 싶어요</summary>
+    <p><b>설정 › 공휴일 › 국가</b>에서 한국이나 미국을 골라 주세요. '공휴일에는 쉬기'를 켠 알람은 고른 나라의 공휴일에 쉬어요.</p>
+  </details>
+  <details>
+    <summary>앱을 영어로 쓰고 싶어요</summary>
+    <p>Kairos는 아이폰 언어를 따라요. 앱만 바꾸려면 <b>설정 › 화면 › 언어</b>에서 English를 골라 주세요. 앱을 다시 열면 바뀌어요.</p>
   </details>
   <details>
     <summary>공휴일 자료는 언제까지 있나요?</summary>
-    <p><b>설정 › 공휴일 정보</b>에서 포함 기간과 자료 기준일을 볼 수 있어요. 새 공휴일이 정해지면 앱 업데이트 없이 자동으로 받아요.</p>
+    <p><b>설정 › 공휴일 › 최종 업데이트</b>를 누르면 공휴일 자료가 어느 달까지 있는지와 업데이트 날짜를 볼 수 있어요. 새 공휴일이 정해지면 앱 업데이트 없이 자동으로 받아요.</p>
   </details>
 
   <h2>문의하기</h2>
@@ -74,16 +86,63 @@
     <p><a class="button" href="https://github.com/woosublee/kairos/issues/new" rel="noopener">문의 남기기</a></p>
     <p class="meta">GitHub 계정이 필요해요. 남긴 내용은 공개돼요.</p>
   </div>
+  </div>
+  <div data-lang-block="en" lang="en" hidden>
+    <h1>How can we help?</h1>
+  <p>Check the common questions first. If that doesn’t solve it, contact us below.</p>
+
+  <h2>Common questions</h2>
+  <details>
+    <summary>My alarm didn’t ring</summary>
+    <ul>
+      <li>In the Kairos app, check that Alarms shows ‘Allowed’ in <b>Settings › About › Permissions</b>. If it’s off, a notice appears at the top of Settings; tap it to go to iPhone <b>Settings › Kairos</b>.</li>
+      <li>If you see an orange notice at the top of the <b>Alarms</b> tab, tap it to check.</li>
+      <li>Check whether the group is turned off, or whether that day is off for a holiday or vacation, on the <b>Schedule</b> tab calendar.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>I want alarms to ring on holidays</summary>
+    <p>Turn off <b>Skip Holidays</b> in the group editor. Then your repeat days ring even on holidays. To change just one day, tap that date on the group’s calendar.</p>
+  </details>
+  <details>
+    <summary>I want alarms to rest during my vacation</summary>
+    <p>In the group editor, go to <b>Calendar Events</b> › <b>Add Rule</b>, enter a keyword like ‘Vacation,’ and choose ‘Off.’ You’ll need to allow calendar access the first time. If you just added an event, open the app once.</p>
+  </details>
+  <details>
+    <summary>I want to turn an alarm off for now and back on later</summary>
+    <p>When you turn off an alarm or group, <b>Resume at Next Alarm</b> appears right below. Tap it and alarms ring again from the next one. To take several days off, tap those dates on the group’s calendar to turn them off.</p>
+  </details>
+  <details>
+    <summary>I want to use U.S. holidays</summary>
+    <p>Go to <b>Settings › Holidays › Country</b> and choose United States or Korea. Alarms with Skip Holidays on rest on that country’s holidays.</p>
+  </details>
+  <details>
+    <summary>I want to use the app in Korean (or English)</summary>
+    <p>Kairos follows your iPhone language. To change just the app, choose a language in <b>Settings › Display › Language</b>. It changes the next time you open the app.</p>
+  </details>
+  <details>
+    <summary>How far ahead does the holiday data go?</summary>
+    <p>Tap <b>Settings › Holidays › Last Updated</b> to see which month the holiday data covers through and when it was updated. When new holidays are announced, Kairos gets them automatically, without an app update.</p>
+  </details>
+
+  <h2>Contact us</h2>
+  <div class="summary">
+    <p>Please leave bugs and suggestions on GitHub. It may take a few days to reply.</p>
+    <p><a class="button" href="https://github.com/woosublee/kairos/issues/new" rel="noopener">Open an issue</a></p>
+    <p class="meta">You need a GitHub account. What you post is public.</p>
+  </div>
+  </div>
   </main>
 </div>
 <footer>
   <div class="wrap">
-    <a href="index.html">소개</a>
-    <a href="privacy.html">개인정보처리방침</a>
-    <a href="support.html">지원</a>
-    <a href="https://github.com/woosublee/kairos/issues">문의</a>
+    <a href="index.html" data-en="About">소개</a>
+    <a href="privacy.html" data-en="Privacy">개인정보처리방침</a>
+    <a href="support.html" data-en="Support">지원</a>
+    <a href="https://github.com/woosublee/kairos/issues" data-en="Contact">문의</a>
     <span class="copy">© 2026 Kairos</span>
   </div>
 </footer>
+<script>KairosI18n.apply();</script>
 </body>
 </html>

@@ -3,17 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>개인정보처리방침 — Kairos</title>
-<meta name="description" content="Kairos는 개인정보를 수집하지 않아요. 알람 설정과 캘린더 일정은 아이폰 안에서만 쓰여요.">
+<title data-en="Privacy Policy — Kairos">개인정보처리방침 — Kairos</title>
+<meta name="description" data-en-content="Kairos doesn’t collect personal data. Your alarm settings and calendar events are used only on your iPhone." content="Kairos는 개인정보를 수집하지 않아요. 알람 설정과 캘린더 일정은 아이폰 안에서만 쓰여요.">
 <meta name="theme-color" content="#141831">
 <link rel="icon" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kairos">
 <meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:url" content="https://kairos.vicals.com/privacy.html">
-<meta property="og:title" content="개인정보처리방침 — Kairos">
-<meta property="og:description" content="Kairos는 개인정보를 수집하지 않아요. 알람 설정과 캘린더 일정은 아이폰 안에서만 쓰여요.">
+<meta property="og:title" data-en-content="Privacy Policy — Kairos" content="개인정보처리방침 — Kairos">
+<meta property="og:description" data-en-content="Kairos doesn’t collect personal data. Your alarm settings and calendar events are used only on your iPhone." content="Kairos는 개인정보를 수집하지 않아요. 알람 설정과 캘린더 일정은 아이폰 안에서만 쓰여요.">
 <meta property="og:image" content="https://kairos.vicals.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -27,20 +28,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="i18n.js"></script>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
     <a href="index.html" style="display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none"><img src="icon.png" alt=""><span class="name">Kairos</span></a>
-    <nav aria-label="페이지">
-      <a href="index.html">소개</a>
-      <a href="privacy.html" aria-current="page">개인정보처리방침</a>
-      <a href="support.html">지원</a>
+    <nav aria-label="페이지" data-en-aria-label="Pages">
+      <a href="index.html" data-en="About">소개</a>
+      <a href="privacy.html" aria-current="page" data-en="Privacy">개인정보처리방침</a>
+      <a href="support.html" data-en="Support">지원</a>
+      <a class="lang-switch" href="?lang=en" hreflang="en" lang="en">English</a>
     </nav>
   </header>
   <main class="doc">
+  <div data-lang-block="ko">
     <h1>개인정보처리방침</h1>
-  <p class="meta">시행일: 2026년 10월 3일</p>
+  <p class="meta">시행일: 2026년 10월 12일</p>
 
   <div class="summary">
     <p>Kairos는 개인정보를 수집하지 않아요. 계정이 없고, 우리 서버로 아무것도 보내지 않아요. 광고나 사용 기록 분석(트래킹)도 하지 않아요.</p>
@@ -59,13 +63,13 @@
   <h2>3. 앱이 요청하는 권한</h2>
   <ul>
     <li><b>알람</b> — 정해 둔 시각에 알람을 울리려면 필요해요.</li>
-    <li><b>알림</b>(선택) — 알람 안내(내일 알람을 전날 알려 주는 알림)를 보내려면 필요해요.</li>
+    <li><b>알림</b>(선택) — 알람 안내(내일 알람을 전날 알려 주는 알림)와 알람 끌지 묻기를 보내려면 필요해요.</li>
     <li><b>캘린더</b>(선택) — 일정에 맞춰 알람을 쉬거나 울리려면 필요해요. 캘린더 규칙을 처음 만들 때만 물어요.</li>
   </ul>
-  <p>권한 상태는 Kairos 앱의 <b>설정 › 권한</b>에서 볼 수 있고, 언제든 아이폰 <b>설정 › Kairos</b>에서 끄거나 켤 수 있어요.</p>
+  <p>권한 상태는 Kairos 앱의 <b>설정 › 정보 › 권한</b>에서 볼 수 있고, 언제든 아이폰 <b>설정 › Kairos</b>에서 끄거나 켤 수 있어요.</p>
 
   <h2>4. 인터넷 연결</h2>
-  <p>공휴일 자료를 최신으로 유지하려고 하루에 한 번 정도 GitHub(raw.githubusercontent.com)에 공개된 공휴일 파일을 내려받아요. 이 파일은 날짜 목록일 뿐이고, 서명을 확인한 뒤에만 써요. 이때 일반적인 웹 요청처럼 IP 주소 같은 접속 정보가 GitHub에 전달될 수 있으며, 이는 <a href="https://docs.github.com/ko/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub 개인정보 처리방침</a>을 따라요. Kairos는 이 요청에 사용자를 알아볼 수 있는 정보를 담지 않아요.</p>
+  <p>공휴일 자료를 최신으로 유지하려고 하루에 한 번 정도 GitHub(raw.githubusercontent.com)에 공개된, 고른 국가(한국 또는 미국)의 공휴일 파일을 내려받아요. 이 파일은 날짜 목록일 뿐이고, 서명을 확인한 뒤에만 써요. 이때 일반적인 웹 요청처럼 IP 주소 같은 접속 정보가 GitHub에 전달될 수 있으며, 이는 <a href="https://docs.github.com/ko/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub 개인정보 처리방침</a>을 따라요. Kairos는 이 요청에 사용자를 알아볼 수 있는 정보를 담지 않아요.</p>
 
   <h2>5. 제3자 제공과 광고</h2>
   <p>개인정보를 제3자에게 제공하거나 판매하지 않아요. 광고 SDK와 분석 도구를 쓰지 않아요.</p>
@@ -81,16 +85,62 @@
 
   <h2>9. 문의</h2>
   <p><a href="support.html">지원 페이지</a>에서 문의해 주세요.</p>
+  </div>
+  <div data-lang-block="en" lang="en" hidden>
+    <h1>Privacy Policy</h1>
+  <p class="meta">Effective: October 12, 2026</p>
+
+  <div class="summary">
+    <p>Kairos doesn’t collect personal data. There’s no account, and nothing is sent to our servers. There are no ads and no usage tracking.</p>
+  </div>
+
+  <h2>1. Information we collect</h2>
+  <p>Kairos doesn’t collect any personal data or send any to the developer.</p>
+
+  <h2>2. Information used only on your iPhone</h2>
+  <ul>
+    <li><b>Alarms and groups</b> — Alarm times, names, repeat days, and dates you changed are stored only on your iPhone.</li>
+    <li><b>Calendar events</b> — Only when you create a calendar rule in a group (for example, off for ‘Vacation’ events) and allow access, Kairos reads event titles and dates on your iPhone. Event details are never stored separately or sent off the device.</li>
+    <li><b>Notifications</b> — Notifications such as Tomorrow’s Alarms are created and delivered on your iPhone.</li>
+  </ul>
+
+  <h2>3. Permissions the app asks for</h2>
+  <ul>
+    <li><b>Alarms</b> — Needed to ring alarms at the times you set.</li>
+    <li><b>Notifications</b> (optional) — Needed to send Tomorrow’s Alarms (a note the night before) and Ask Before Alarm.</li>
+    <li><b>Calendar</b> (optional) — Needed to skip or ring alarms based on events. Kairos asks only when you create your first calendar rule.</li>
+  </ul>
+  <p>You can see permission status in the Kairos app under <b>Settings › About › Permissions</b>, and turn each one on or off anytime in iPhone <b>Settings › Kairos</b>.</p>
+
+  <h2>4. Internet connection</h2>
+  <p>To keep holiday data up to date, Kairos downloads the public holiday file for your chosen country (United States or Korea) from GitHub (raw.githubusercontent.com) about once a day. The file is only a list of dates, and Kairos uses it only after verifying its signature. As with any web request, connection details such as your IP address may reach GitHub, which handles them under the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Privacy Statement</a>. Kairos doesn’t include anything that identifies you in this request.</p>
+
+  <h2>5. Third parties and ads</h2>
+  <p>We don’t share or sell personal data to third parties. Kairos uses no ad SDKs or analytics tools.</p>
+
+  <h2>6. Children’s privacy</h2>
+  <p>Kairos doesn’t collect personal data from anyone, including children.</p>
+
+  <h2>7. Deleting your data</h2>
+  <p>Deleting the app also deletes the alarm settings stored on your iPhone.</p>
+
+  <h2>8. Changes</h2>
+  <p>If this policy changes, we’ll post the update on this page with a new effective date.</p>
+
+  <h2>9. Contact</h2>
+  <p>Please reach us through the <a href="support.html">Support page</a>.</p>
+  </div>
   </main>
 </div>
 <footer>
   <div class="wrap">
-    <a href="index.html">소개</a>
-    <a href="privacy.html">개인정보처리방침</a>
-    <a href="support.html">지원</a>
-    <a href="https://github.com/woosublee/kairos/issues">문의</a>
+    <a href="index.html" data-en="About">소개</a>
+    <a href="privacy.html" data-en="Privacy">개인정보처리방침</a>
+    <a href="support.html" data-en="Support">지원</a>
+    <a href="https://github.com/woosublee/kairos/issues" data-en="Contact">문의</a>
     <span class="copy">© 2026 Kairos</span>
   </div>
 </footer>
+<script>KairosI18n.apply();</script>
 </body>
 </html>

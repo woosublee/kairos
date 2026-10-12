@@ -3,18 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kairos — 내 일정에 맞춰 알람이 알아서 켜지고 꺼져요</title>
-<meta name="description" content="공휴일과 캘린더 일정을 보고 알람을 알아서 켜고 끄는 iPhone 알람 앱이에요. 알람을 그룹으로 묶어 한 번에 관리하세요.">
+<title data-en="Kairos — Alarms that follow your schedule">Kairos — 내 일정에 맞춰 알람이 알아서 켜지고 꺼져요</title>
+<meta name="description" data-en-content="An iPhone alarm app that turns alarms on and off with public holidays and your calendar. Group your alarms and manage them at once." content="공휴일과 캘린더 일정을 보고 알람을 알아서 켜고 끄는 iPhone 알람 앱이에요. 알람을 그룹으로 묶어 한 번에 관리하세요.">
 <meta name="theme-color" content="#141831">
 <link rel="icon" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kairos">
 <meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:url" content="https://kairos.vicals.com/">
-<meta property="og:title" content="Kairos — 일정에 맞춰 움직이는 알람">
+<meta property="og:title" data-en-content="Kairos — Alarms that follow your schedule" content="Kairos — 일정에 맞춰 움직이는 알람">
 <meta name="apple-itunes-app" content="app-id=6819537411">
-<meta property="og:description" content="매일 켜고 끌 필요 없는 알람">
+<meta property="og:description" data-en-content="Alarms you don’t have to switch every day" content="매일 켜고 끌 필요 없는 알람">
 <meta property="og:image" content="https://kairos.vicals.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,6 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="i18n.js"></script>
 <script>if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion');</script>
 </head>
 <body>
@@ -35,10 +37,11 @@
 <div class="wrap">
   <header class="top">
     <a href="index.html" style="display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none"><img src="icon.png" alt=""><span class="name">Kairos</span></a>
-    <nav aria-label="페이지">
-      <a href="index.html" aria-current="page">소개</a>
-      <a href="privacy.html">개인정보처리방침</a>
-      <a href="support.html">지원</a>
+    <nav aria-label="페이지" data-en-aria-label="Pages">
+      <a href="index.html" aria-current="page" data-en="About">소개</a>
+      <a href="privacy.html" data-en="Privacy">개인정보처리방침</a>
+      <a href="support.html" data-en="Support">지원</a>
+      <a class="lang-switch" href="?lang=en" hreflang="en" lang="en">English</a>
     </nav>
   </header>
 
@@ -47,14 +50,14 @@
     <div class="sticky">
     <div class="hero">
       <div class="hero-copy">
-        <h1>내 일정에 맞춰 알람이<br>알아서 켜지고 꺼져요</h1>
-        <ol class="story" aria-label="스크롤하면 달력이 바뀌어요">
-          <li data-i="0">평일엔 요일대로 울리고</li>
-          <li data-i="1">공휴일엔 알아서 쉬고</li>
-          <li data-i="2">'휴가' 일정이 있으면 쉬고</li>
-          <li data-i="3">'주말 출근' 일정이면 울려요</li>
+        <h1 data-en="Alarms that follow<br>your schedule">내 일정에 맞춰 알람이<br>알아서 켜지고 꺼져요</h1>
+        <ol class="story" aria-label="스크롤하면 달력이 바뀌어요" data-en-aria-label="Scroll to change the calendar">
+          <li data-i="0" data-en="Ring on your weekdays,">평일엔 요일대로 울리고</li>
+          <li data-i="1" data-en="rest on public holidays,">공휴일엔 알아서 쉬고</li>
+          <li data-i="2" data-en="rest on ‘Vacation’ events,">'휴가' 일정이 있으면 쉬고</li>
+          <li data-i="3" data-en="and ring on ‘Weekend shift’ events.">'주말 출근' 일정이면 울려요</li>
         </ol>
-        <a class="store-badge" href="https://apps.apple.com/kr/app/kairos-smart-alarm/id6819537411"><img src="appstore-badge.svg" alt="App Store에서 다운로드하기" width="156" height="48"></a>
+        <a class="store-badge" href="https://apps.apple.com/kr/app/kairos-smart-alarm/id6819537411" data-en-href="https://apps.apple.com/us/app/kairos-smart-alarm/id6819537411"><img src="appstore-badge.svg" data-en-src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us" alt="App Store에서 다운로드하기" data-en-alt="Download on the App Store" width="156" height="48"></a>
       </div>
 
       <div class="demo-col">
@@ -63,53 +66,53 @@
           <span class="month" id="demo-title">출근 · 2026년 10월</span>
           <span class="count" id="count" aria-live="polite"></span>
         </div>
-        <div class="grid" id="grid" role="group" aria-label="10월 달력. 날짜를 누르면 그날만 바뀌어요"></div>
+        <div class="grid" id="grid" role="group" aria-label="10월 달력. 날짜를 누르면 그날만 바뀌어요" data-en-aria-label="Calendar. Tap a date to change just that day"></div>
         <div class="demo-foot">
-          <button class="switch" id="holiday" role="switch" aria-checked="false">
+          <button class="switch" id="holiday" role="switch" aria-checked="false" data-en="&lt;span class=&quot;track&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Skip Holidays">
             <span class="track" aria-hidden="true"></span>공휴일에는 쉬기
           </button>
           <div class="legend" aria-hidden="true">
-            <span><i style="background:linear-gradient(160deg,rgba(255,193,90,.6),rgba(255,94,58,.5))"></i>울림</span>
-            <span><i style="background:rgba(242,239,233,.08)"></i>쉼</span>
-            <span><i style="background:transparent;box-shadow:inset 0 0 0 1px #F0857A"></i>공휴일</span>
-            <span><i style="background:transparent;box-shadow:inset 0 0 0 1.5px #8C8CFF"></i>캘린더 일정</span>
+            <span><i style="background:linear-gradient(160deg,rgba(255,193,90,.6),rgba(255,94,58,.5))"></i><b data-en="Ring" style="font-weight:inherit">울림</b></span>
+            <span><i style="background:rgba(242,239,233,.08)"></i><b data-en="Off" style="font-weight:inherit">쉼</b></span>
+            <span><i style="background:transparent;box-shadow:inset 0 0 0 1px #F0857A"></i><b data-en="Holiday" style="font-weight:inherit">공휴일</b></span>
+            <span><i style="background:transparent;box-shadow:inset 0 0 0 1.5px #8C8CFF"></i><b data-en="Calendar event" style="font-weight:inherit">캘린더 일정</b></span>
           </div>
         </div>
-        <div class="rules" role="group" aria-label="캘린더 규칙">
-          <span class="rules-label">캘린더 규칙</span>
-          <button class="chip" id="rule-rest" type="button" aria-pressed="false">'휴가' 일정이면 쉬기</button>
-          <button class="chip" id="rule-ring" type="button" aria-pressed="false">'주말 출근' 일정이면 울리기</button>
+        <div class="rules" role="group" aria-label="캘린더 규칙" data-en-aria-label="Calendar rules">
+          <span class="rules-label" data-en="Calendar Rules">캘린더 규칙</span>
+          <button class="chip" id="rule-rest" type="button" aria-pressed="false" data-en="Off for ‘Vacation’ events">'휴가' 일정이면 쉬기</button>
+          <button class="chip" id="rule-ring" type="button" aria-pressed="false" data-en="Ring for ‘Weekend shift’ events">'주말 출근' 일정이면 울리기</button>
         </div>
       </div>
-      <p class="hint">날짜를 누르거나 규칙을 켜 보세요.<br>새 공휴일은 앱 업데이트 없이 자동으로 받아요.</p>
+      <p class="hint" data-en="Tap a date or turn on a rule.<br>New holidays arrive automatically, without an app update.">날짜를 누르거나 규칙을 켜 보세요.<br>새 공휴일은 앱 업데이트 없이 자동으로 받아요.</p>
       </div>
     </div>
     </div>
     </div>
 
     <section class="tour" aria-labelledby="screens">
-      <h2 id="screens">이렇게 써요</h2>
+      <h2 id="screens" data-en="How it works">이렇게 써요</h2>
       <div class="tour-grid">
         <div class="tour-stage" aria-hidden="false">
           <div class="device">
             <span class="island" aria-hidden="true"></span>
-          <img src="shots/screen-1.jpg" width="660" height="1435" alt="출근·운동 그룹과 다음 알람이 보이는 알람 탭" class="on" data-i="0">
-          <img src="shots/screen-2.jpg" width="660" height="1435" alt="반복 요일과 달력이 보이는 그룹 편집" data-i="1" loading="lazy">
-          <img src="shots/screen-3.jpg" width="660" height="1435" alt="'휴가'·'재택'이면 쉬고 '주말 출근'이면 울리는 캘린더 규칙" data-i="2" loading="lazy">
-          <img src="shots/screen-4.jpg" width="660" height="1435" alt="'휴가' 일정이라 출근 알람이 쉬는 날" data-i="3" loading="lazy">
-          <img src="shots/screen-5.jpg" width="660" height="1435" alt="토요일이지만 '주말 출근' 일정이라 알람이 울리는 날" data-i="4" loading="lazy">
-          <img src="shots/screen-6.jpg" width="660" height="1435" alt="오늘 알람을 끄고 '다음 알람부터 켜기'가 보이는 알람 탭" data-i="5" loading="lazy">
+          <img src="shots/screen-1.jpg" data-en-src="shots/en/screen-1.jpg" width="660" height="1435" alt="출근·운동 그룹과 다음 알람이 보이는 알람 탭" data-en-alt="Alarms tab with Work and Workout groups and the next alarm" class="on" data-i="0">
+          <img src="shots/screen-2.jpg" data-en-src="shots/en/screen-2.jpg" width="660" height="1435" alt="반복 요일과 달력이 보이는 그룹 편집" data-en-alt="Group editor with repeat days and a calendar" data-i="1" loading="lazy">
+          <img src="shots/screen-3.jpg" data-en-src="shots/en/screen-3.jpg" width="660" height="1435" alt="'휴가'·'재택'이면 쉬고 '주말 출근'이면 울리는 캘린더 규칙" data-en-alt="Calendar rules: off for ‘Vacation’ and ‘WFH,’ ring for ‘Weekend shift’" data-i="2" loading="lazy">
+          <img src="shots/screen-4.jpg" data-en-src="shots/en/screen-4.jpg" width="660" height="1435" alt="'휴가' 일정이라 출근 알람이 쉬는 날" data-en-alt="A day when work alarms are off for a ‘Vacation’ event" data-i="3" loading="lazy">
+          <img src="shots/screen-5.jpg" data-en-src="shots/en/screen-5.jpg" width="660" height="1435" alt="토요일이지만 '주말 출근' 일정이라 알람이 울리는 날" data-en-alt="A Saturday when alarms ring for a ‘Weekend shift’ event" data-i="4" loading="lazy">
+          <img src="shots/screen-6.jpg" data-en-src="shots/en/screen-6.jpg" width="660" height="1435" alt="오늘 알람을 끄고 '다음 알람부터 켜기'가 보이는 알람 탭" data-en-alt="Alarms tab showing ‘Resume at Next Alarm’ after turning today’s alarm off" data-i="5" loading="lazy">
           </div>
           <div class="caption" aria-hidden="true"></div>
           <div class="dots" aria-hidden="true"><i data-i="0" class="on"></i><i data-i="1"></i><i data-i="2"></i><i data-i="3"></i><i data-i="4"></i><i data-i="5"></i></div>
         </div>
         <div class="tour-steps">
-        <div class="step" data-i="0"><div class="card"><span class="num">01</span><h3>그룹을 만들고 알람을 넣어요</h3><p>'출근'처럼 그룹을 먼저 만들고 그 안에 알람을 넣어요.<br>스위치 하나로 모두 켜고 꺼요.</p></div></div>
-        <div class="step" data-i="1"><div class="card"><span class="num">02</span><h3>요일만 정하면 공휴일은 알아서</h3><p>그룹의 반복 요일만 정하면 공휴일엔 알아서 쉬어요.<br>연차나 대체 출근일은 달력에서 날짜를 눌러 바꿔요.</p></div></div>
-        <div class="step" data-i="2"><div class="card"><span class="num">03</span><h3>캘린더를 연동하고 단어를 정해요</h3><p>그룹 편집에서 아이폰 캘린더를 연동하고 '휴가'처럼 쉴 단어를 정해 두면, 그다음부터는 캘린더에 일정만 넣으면 돼요.</p></div></div>
-        <div class="step" data-i="3"><div class="card"><span class="num">04</span><h3>휴가엔 알아서 쉬어요</h3><p>캘린더에 '휴가' 일정이 있는 날은 출근 알람이 쉬고,<br>일정 탭에서 왜 쉬는지 바로 보여요.</p></div></div>
-        <div class="step" data-i="4"><div class="card"><span class="num">05</span><h3>주말 출근엔 울려요</h3><p>'주말 출근'을 울릴 단어로 정해 두면<br>토요일이어도 그날은 출근 알람이 울려요.</p></div></div>
-        <div class="step" data-i="5"><div class="card"><span class="num">06</span><h3>오늘만 쉬어 가요</h3><p>오늘 알람만 끄고 싶을 땐<br>'다음 알람부터 켜기'를 누르면 내일부터 다시 울려요.</p></div></div>
+        <div class="step" data-i="0"><div class="card" data-en="&lt;span class=&quot;num&quot;&gt;01&lt;/span&gt;&lt;h3&gt;Make a group, add alarms&lt;/h3&gt;&lt;p&gt;Start with a group like ‘Work’ and add alarms to it.&lt;br&gt;One switch turns them all on or off.&lt;/p&gt;"><span class="num">01</span><h3>그룹을 만들고 알람을 넣어요</h3><p>'출근'처럼 그룹을 먼저 만들고 그 안에 알람을 넣어요.<br>스위치 하나로 모두 켜고 꺼요.</p></div></div>
+        <div class="step" data-i="1"><div class="card" data-en="&lt;span class=&quot;num&quot;&gt;02&lt;/span&gt;&lt;h3&gt;Pick the days, holidays take care of themselves&lt;/h3&gt;&lt;p&gt;Set the group’s repeat days, and alarms rest on public holidays.&lt;br&gt;For a day off or an extra workday, tap the date on the calendar.&lt;/p&gt;"><span class="num">02</span><h3>요일만 정하면 공휴일은 알아서</h3><p>그룹의 반복 요일만 정하면 공휴일엔 알아서 쉬어요.<br>연차나 대체 출근일은 달력에서 날짜를 눌러 바꿔요.</p></div></div>
+        <div class="step" data-i="2"><div class="card" data-en="&lt;span class=&quot;num&quot;&gt;03&lt;/span&gt;&lt;h3&gt;Link your calendar, pick a word&lt;/h3&gt;&lt;p&gt;In the group editor, link your iPhone calendar and choose a word to rest on, like ‘Vacation.’ From then on, just add the event to your calendar.&lt;/p&gt;"><span class="num">03</span><h3>캘린더를 연동하고 단어를 정해요</h3><p>그룹 편집에서 아이폰 캘린더를 연동하고 '휴가'처럼 쉴 단어를 정해 두면, 그다음부터는 캘린더에 일정만 넣으면 돼요.</p></div></div>
+        <div class="step" data-i="3"><div class="card" data-en="&lt;span class=&quot;num&quot;&gt;04&lt;/span&gt;&lt;h3&gt;Vacation days rest on their own&lt;/h3&gt;&lt;p&gt;On days with a ‘Vacation’ event, work alarms stay quiet,&lt;br&gt;and the Schedule tab shows why.&lt;/p&gt;"><span class="num">04</span><h3>휴가엔 알아서 쉬어요</h3><p>캘린더에 '휴가' 일정이 있는 날은 출근 알람이 쉬고,<br>일정 탭에서 왜 쉬는지 바로 보여요.</p></div></div>
+        <div class="step" data-i="4"><div class="card" data-en="&lt;span class=&quot;num&quot;&gt;05&lt;/span&gt;&lt;h3&gt;Weekend shifts still ring&lt;/h3&gt;&lt;p&gt;Set ‘Weekend shift’ as a word to ring on,&lt;br&gt;and work alarms ring that day, even on a Saturday.&lt;/p&gt;"><span class="num">05</span><h3>주말 출근엔 울려요</h3><p>'주말 출근'을 울릴 단어로 정해 두면<br>토요일이어도 그날은 출근 알람이 울려요.</p></div></div>
+        <div class="step" data-i="5"><div class="card" data-en="&lt;span class=&quot;num&quot;&gt;06&lt;/span&gt;&lt;h3&gt;Take just today off&lt;/h3&gt;&lt;p&gt;To skip only today’s alarm, turn it off and tap&lt;br&gt;‘Resume at Next Alarm.’ It rings again from tomorrow.&lt;/p&gt;"><span class="num">06</span><h3>오늘만 쉬어 가요</h3><p>오늘 알람만 끄고 싶을 땐<br>'다음 알람부터 켜기'를 누르면 내일부터 다시 울려요.</p></div></div>
         </div>
       </div>
     </section>
@@ -118,22 +121,22 @@
     <div class="sticky">
     <div class="brief">
       <div class="brief-copy">
-        <h2 id="brief-title">전날 밤, 내일을 알려 줘요</h2>
-        <p>정해 둔 시각에 내일 울릴 알람과<br>쉬는 이유를 알림으로 보내요.</p>
-        <div class="tabs" role="tablist" aria-label="내일 상황">
-          <button role="tab" type="button" aria-selected="true" data-k="weekday">평일</button>
-          <button role="tab" type="button" aria-selected="false" data-k="holiday">공휴일</button>
-          <button role="tab" type="button" aria-selected="false" data-k="vacation">휴가</button>
-          <button role="tab" type="button" aria-selected="false" data-k="none">알람 없는 날</button>
+        <h2 id="brief-title" data-en="The night before, know tomorrow">전날 밤, 내일을 알려 줘요</h2>
+        <p data-en="At a time you choose, get a note with tomorrow’s alarms&lt;br&gt;and why any are off.">정해 둔 시각에 내일 울릴 알람과<br>쉬는 이유를 알림으로 보내요.</p>
+        <div class="tabs" role="tablist" aria-label="내일 상황" data-en-aria-label="Tomorrow">
+          <button role="tab" type="button" aria-selected="true" data-k="weekday" data-en="Weekday">평일</button>
+          <button role="tab" type="button" aria-selected="false" data-k="holiday" data-en="Holiday">공휴일</button>
+          <button role="tab" type="button" aria-selected="false" data-k="vacation" data-en="Vacation">휴가</button>
+          <button role="tab" type="button" aria-selected="false" data-k="none" data-en="No alarms">알람 없는 날</button>
         </div>
       </div>
       <div class="lock" aria-live="polite">
-        <div class="lock-time">21:00</div>
+        <div class="lock-time" data-en="9:00">21:00</div>
         <div class="lock-date" id="lock-date">10월 8일 목요일</div>
         <div class="noti">
           <img src="icon.png" alt="" width="38" height="38">
           <div class="noti-text">
-            <div class="noti-head"><b>알람 안내</b><span>지금</span></div>
+            <div class="noti-head" data-en="&lt;b&gt;Tomorrow&#x27;s Alarms&lt;/b&gt;&lt;span&gt;now&lt;/span&gt;"><b>알람 안내</b><span>지금</span></div>
             <div class="noti-sub" id="noti-sub">내일 · 10월 8일 (목)</div>
             <div class="noti-body" id="noti-body">06:50부터 알람 3개가 울려요.</div>
           </div>
@@ -147,24 +150,24 @@
     <div class="sticky">
     <div class="brief">
       <div class="brief-copy">
-        <h2 id="wake-title">먼저 깼다면, 알람 전에 꺼요</h2>
-        <p>알람이 울리기 15분 전에 끌지 물어봐요.<br>알림을 길게 눌러 그날 알람을 끌 수 있어요.</p>
-        <p class="wake-note">설정 › 알람 끌지 묻기에서 켜요.</p>
+        <h2 id="wake-title" data-en="Up early? Turn it off first">먼저 깼다면, 알람 전에 꺼요</h2>
+        <p data-en="15 minutes before an alarm, Kairos asks if you’re already up.&lt;br&gt;Touch and hold the notification to turn that day’s alarm off.">알람이 울리기 15분 전에 끌지 물어봐요.<br>알림을 길게 눌러 그날 알람을 끌 수 있어요.</p>
+        <p class="wake-note" data-en="Turn it on in Settings › Ask Before Alarm.">설정 › 알람 끌지 묻기에서 켜요.</p>
       </div>
       <div class="lock" id="wake-lock">
-        <div class="lock-time">06:35</div>
-        <div class="lock-date">10월 8일 목요일</div>
+        <div class="lock-time" data-en="6:35">06:35</div>
+        <div class="lock-date" data-en="Thursday, October 8">10월 8일 목요일</div>
         <div class="noti">
           <img src="icon.png" alt="" width="38" height="38">
           <div class="noti-text">
-            <div class="noti-head"><b>이미 일어나셨나요?</b><span>지금</span></div>
-            <div class="noti-sub">출근 · 1차 · 06:50</div>
-            <div class="noti-body">곧 알람이 울려요. 길게 눌러 끌 수 있어요.</div>
+            <div class="noti-head" data-en="<b>Already up?</b><span>now</span>"><b>이미 일어나셨나요?</b><span>지금</span></div>
+            <div class="noti-sub" data-en="Work · Wake up · 6:50 AM">출근 · 1차 · 06:50</div>
+            <div class="noti-body" data-en="An alarm rings soon. Touch and hold to turn it off.">곧 알람이 울려요. 길게 눌러 끌 수 있어요.</div>
           </div>
         </div>
-        <div class="noti-actions" aria-label="알림을 길게 누르면 나오는 버튼">
-          <span>출근 알람 모두 끄기</span>
-          <span>1차만 끄기</span>
+        <div class="noti-actions" aria-label="알림을 길게 누르면 나오는 버튼" data-en-aria-label="Buttons shown when you touch and hold the notification">
+          <span data-en="Turn Off All Work Alarms">출근 알람 모두 끄기</span>
+          <span data-en="Turn Off Only Wake up">1차만 끄기</span>
         </div>
       </div>
     </div>
@@ -173,9 +176,9 @@
 
     <section class="scene privacy privacy-scene" data-scene="privacy" data-steps="3" aria-labelledby="priv">
     <div class="sticky"><div class="sticky-inner">
-      <h2 id="priv">내 일정은 내 아이폰에만</h2>
-      <p class="statement" id="statement">가입도, 서버도, 광고도 없어요.<br>캘린더 일정은 어디에도 보내지 않아요.</p>
-      <p class="privacy-link"><a href="privacy.html">개인정보처리방침 읽기</a></p>
+      <h2 id="priv" data-en="Your schedule stays on your iPhone">내 일정은 내 아이폰에만</h2>
+      <p class="statement" id="statement" data-en="No sign-up, no servers, no ads.&lt;br&gt;Calendar events are never sent anywhere.">가입도, 서버도, 광고도 없어요.<br>캘린더 일정은 어디에도 보내지 않아요.</p>
+      <p class="privacy-link"><a href="privacy.html" data-en="Read the Privacy Policy">개인정보처리방침 읽기</a></p>
     </div></div>
     </section>
   </main>
@@ -184,27 +187,31 @@
 <section class="get" aria-labelledby="get-title">
   <div class="wrap">
     <img class="get-icon" src="icon.png" alt="" width="88" height="88">
-    <h2 id="get-title">이제 알람은 Kairos에 맡기세요</h2>
-    <p>iPhone 무료 · iOS 26 이상</p>
-    <a class="store-badge" href="https://apps.apple.com/kr/app/kairos-smart-alarm/id6819537411"><img src="appstore-badge.svg" alt="App Store에서 다운로드하기" width="169" height="52"></a>
+    <h2 id="get-title" data-en="Leave your alarms to Kairos">이제 알람은 Kairos에 맡기세요</h2>
+    <p data-en="Free for iPhone · iOS 26 or later">iPhone 무료 · iOS 26 이상</p>
+    <a class="store-badge" href="https://apps.apple.com/kr/app/kairos-smart-alarm/id6819537411" data-en-href="https://apps.apple.com/us/app/kairos-smart-alarm/id6819537411"><img src="appstore-badge.svg" data-en-src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us" alt="App Store에서 다운로드하기" data-en-alt="Download on the App Store" width="169" height="52"></a>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <a href="index.html">소개</a>
-    <a href="privacy.html">개인정보처리방침</a>
-    <a href="support.html">지원</a>
-    <a href="https://github.com/woosublee/kairos/issues">문의</a>
+    <a href="index.html" data-en="About">소개</a>
+    <a href="privacy.html" data-en="Privacy">개인정보처리방침</a>
+    <a href="support.html" data-en="Support">지원</a>
+    <a href="https://github.com/woosublee/kairos/issues" data-en="Contact">문의</a>
     <span class="copy">© 2026 Kairos</span>
   </div>
 </footer>
 
+<script>KairosI18n.apply();</script>
 <script>
 (function () {
   // 앱에 들어 있는 공휴일 자료(2026–2027). holiday-data/가 게시되면 그 파일을 먼저 읽는다.
   var EMBEDDED = {"2026-01-01": "1월 1일", "2026-02-16": "설날 전날", "2026-02-17": "설날", "2026-02-18": "설날 다음 날", "2026-03-01": "3·1절", "2026-03-02": "대체공휴일(3·1절)", "2026-05-01": "노동절", "2026-05-05": "어린이날", "2026-05-24": "부처님 오신 날", "2026-05-25": "대체공휴일(부처님 오신 날)", "2026-06-03": "제9회 전국동시지방선거", "2026-06-06": "현충일", "2026-07-17": "제헌절", "2026-08-15": "광복절", "2026-08-17": "대체공휴일(광복절)", "2026-09-24": "추석 전날", "2026-09-25": "추석", "2026-09-26": "추석 다음 날", "2026-10-03": "개천절", "2026-10-05": "대체공휴일(개천절)", "2026-10-09": "한글날", "2026-12-25": "기독탄신일", "2027-01-01": "1월 1일", "2027-02-06": "설날 전날", "2027-02-07": "설날", "2027-02-08": "설날 다음 날", "2027-02-09": "대체공휴일(설날)", "2027-03-01": "3·1절", "2027-05-01": "노동절", "2027-05-03": "대체공휴일(노동절)", "2027-05-05": "어린이날", "2027-05-13": "부처님 오신 날", "2027-06-06": "현충일", "2027-07-17": "제헌절", "2027-07-19": "대체공휴일(제헌절)", "2027-08-15": "광복절", "2027-08-16": "대체공휴일(광복절)", "2027-09-14": "추석 전날", "2027-09-15": "추석", "2027-09-16": "추석 다음 날", "2027-10-03": "개천절", "2027-10-04": "대체공휴일(개천절)", "2027-10-09": "한글날", "2027-10-11": "대체공휴일(한글날)", "2027-12-25": "기독탄신일", "2027-12-27": "대체공휴일(기독탄신일)"};
-  var holidays = Object.assign({}, EMBEDDED);
+  // 영어로 볼 때는 미국 공휴일(앱의 v2 자료와 같다)을 쓴다.
+  var EN = window.KairosLang === "en";
+  var EMBEDDED_US = {"2026-01-01": "New Year’s Day", "2026-01-19": "Martin Luther King Jr. Day", "2026-02-16": "Presidents’ Day", "2026-05-25": "Memorial Day", "2026-06-19": "Juneteenth", "2026-07-03": "Independence Day (observed)", "2026-07-04": "Independence Day", "2026-09-07": "Labor Day", "2026-10-12": "Columbus Day", "2026-11-11": "Veterans Day", "2026-11-26": "Thanksgiving", "2026-12-25": "Christmas Day", "2027-01-01": "New Year’s Day", "2027-01-18": "Martin Luther King Jr. Day", "2027-02-15": "Presidents’ Day", "2027-05-31": "Memorial Day", "2027-06-18": "Juneteenth (observed)", "2027-06-19": "Juneteenth", "2027-07-04": "Independence Day", "2027-07-05": "Independence Day (observed)", "2027-09-06": "Labor Day", "2027-10-11": "Columbus Day", "2027-11-11": "Veterans Day", "2027-11-25": "Thanksgiving", "2027-12-24": "Christmas Day (observed)", "2027-12-25": "Christmas Day", "2027-12-31": "New Year’s Day (observed)"};
+  var holidays = Object.assign({}, EN ? EMBEDDED_US : EMBEDDED);
   var now = new Date();
   var year = now.getFullYear(), month = now.getMonth(); // 0-based
   var today = now.getDate();
@@ -223,14 +230,17 @@
   var grid = document.getElementById("grid");
   var count = document.getElementById("count");
   var toggle = document.getElementById("holiday");
-  document.getElementById("demo-title").textContent = "출근 · " + year + "년 " + (month + 1) + "월";
+  document.getElementById("demo-title").textContent = EN
+    ? "Work · " + now.toLocaleDateString("en-US", { month: "short", year: "numeric" })
+    : "출근 · " + year + "년 " + (month + 1) + "월";
+  var monthName = now.toLocaleDateString("en-US", { month: "long" });
 
   function key(day) {
     return year + "-" + String(month + 1).padStart(2, "0") + "-" + String(day).padStart(2, "0");
   }
   function holidayName(day) { return holidays[key(day)]; }
 
-  ["일", "월", "화", "수", "목", "금", "토"].forEach(function (d, i) {
+  (EN ? ["S", "M", "T", "W", "T", "F", "S"] : ["일", "월", "화", "수", "목", "금", "토"]).forEach(function (d, i) {
     var el = document.createElement("div");
     el.className = "dow" + (i === 0 ? " sun" : "");
     el.textContent = d;
@@ -267,8 +277,8 @@
   }
   function rings(day) { return day in changed ? changed[day] : ruled(day); }
   function eventName(day) {
-    if (vacation.indexOf(day) >= 0) return "휴가";
-    if (day === weekendShift) return "주말 출근";
+    if (vacation.indexOf(day) >= 0) return EN ? "Vacation" : "휴가";
+    if (day === weekendShift) return EN ? "Weekend shift" : "주말 출근";
     return null;
   }
 
@@ -280,12 +290,15 @@
       var ev = eventName(day);
       c.className = "day" + (on ? " ring" : "") + (name ? " holiday" : "") + (ev ? " event" : "") +
         (day in changed ? " changed" : "") + (day === today ? " today" : "") + (intro && on ? " intro" : "");
-      c.setAttribute("aria-label", (month + 1) + "월 " + day + "일" + (name ? " " + name : "") +
-        (day === today ? ", 오늘" : "") + (ev ? ", '" + ev + "' 일정" : "") + ", " + (on ? "울림" : "쉼") + (day in changed ? ", 직접 바꿈" : ""));
+      c.setAttribute("aria-label", EN
+        ? monthName + " " + day + (name ? ", " + name : "") + (day === today ? ", today" : "") +
+          (ev ? ", ‘" + ev + "’ event" : "") + ", " + (on ? "rings" : "off") + (day in changed ? ", edited" : "")
+        : (month + 1) + "월 " + day + "일" + (name ? " " + name : "") +
+          (day === today ? ", 오늘" : "") + (ev ? ", '" + ev + "' 일정" : "") + ", " + (on ? "울림" : "쉼") + (day in changed ? ", 직접 바꿈" : ""));
       c.setAttribute("aria-pressed", on ? "true" : "false");
-      if (name || ev) c.title = [name, ev && "'" + ev + "' 일정"].filter(Boolean).join(" · "); else c.removeAttribute("title");
+      if (name || ev) c.title = [name, ev && (EN ? "‘" + ev + "’ event" : "'" + ev + "' 일정")].filter(Boolean).join(" · "); else c.removeAttribute("title");
     });
-    count.textContent = n + "일 울려요";
+    count.textContent = EN ? "Rings on " + n + (n === 1 ? " day" : " days") : n + "일 울려요";
   }
 
   function onTap(e) {
@@ -328,12 +341,15 @@
 
   // 게시된 공휴일 자료가 있으면 그 해 자료로 바꾼다(앱이 받는 자료와 같다). 없거나 실패하면 그대로 둔다.
   if (window.fetch) {
-    fetch("holiday-data/holidays-" + year + ".json", { cache: "no-cache" })
+    fetch(EN ? "holiday-data/v2/US/holidays-" + year + ".json" : "holiday-data/holidays-" + year + ".json", { cache: "no-cache" })
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (data) {
         if (!data || !Array.isArray(data.holidays)) return;
         var fresh = {};
-        data.holidays.forEach(function (h) { fresh[h.date] = fresh[h.date] ? fresh[h.date] + " · " + h.name : h.name; });
+        data.holidays.forEach(function (h) {
+          var nm = EN ? h.names && h.names.en : h.name;
+          if (nm) fresh[h.date] = fresh[h.date] ? fresh[h.date] + " · " + nm : nm;
+        });
         Object.keys(holidays).forEach(function (k) { if (k.indexOf(year + "-") === 0) delete holidays[k]; });
         Object.assign(holidays, fresh);
         render(false);
@@ -385,15 +401,21 @@
 <script>
 // 전날 밤 알림 미리보기: 앱이 실제로 보내는 문구. 스크롤(또는 버튼)로 바꾼다.
 (function () {
-  var texts = {
+  var EN = window.KairosLang === "en";
+  var texts = EN ? {
+    weekday: "3 alarms ring from 6:50\u202fAM.",
+    holiday: "An alarm rings at 7:30\u202fPM; 3 off.",
+    vacation: "Alarms are off for the \u2018Vacation\u2019 event.",
+    none: "No alarms scheduled."
+  } : {
     weekday: "06:50부터 알람 3개가 울려요.",
     holiday: "19:30에 알람이 울리고, 3개는 쉬어요.",
     vacation: "'휴가' 일정이 있어서 알람이 쉬어요.",
     none: "예정된 알람이 없어요."
   };
   // 부제목은 내일 날짜(공휴일이면 이름까지).
-  var subs = { weekday: "내일 · 10월 8일 (목)", holiday: "내일 · 10월 9일 (금) 한글날", vacation: "내일 · 10월 12일 (월)", none: "내일 · 10월 11일 (일)" };
-  var dates = { weekday: "10월 7일 수요일", holiday: "10월 8일 목요일", vacation: "10월 11일 일요일", none: "10월 10일 토요일" };
+  var subs = EN ? { weekday: "Tomorrow · Thu, Oct 8", holiday: "Tomorrow · Mon, Oct 12 Columbus Day", vacation: "Tomorrow · Tue, Oct 13", none: "Tomorrow · Sat, Oct 10" } : { weekday: "내일 · 10월 8일 (목)", holiday: "내일 · 10월 9일 (금) 한글날", vacation: "내일 · 10월 12일 (월)", none: "내일 · 10월 11일 (일)" };
+  var dates = EN ? { weekday: "Wednesday, October 7", holiday: "Sunday, October 11", vacation: "Monday, October 12", none: "Friday, October 9" } : { weekday: "10월 7일 수요일", holiday: "10월 8일 목요일", vacation: "10월 11일 일요일", none: "10월 10일 토요일" };
   var tabs = document.querySelectorAll('.brief .tabs button');
   var body = document.getElementById('noti-body');
   var sub = document.getElementById('noti-sub');
